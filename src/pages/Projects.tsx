@@ -13,12 +13,14 @@ import {
 } from "react-icons/fa"; // FontAwesome
 import { SiTailwindcss, SiTypescript } from "react-icons/si";
 import Button from "../components/Button";
+
+import pic from "../assets/recipes-img.png";
 function Projects() {
   const projects = [
     {
       id: 1,
       project_name: "Web Recipes",
-      img: "../assets/recipes-img.png",
+      img: { pic },
       description:
         "The Web Recipes App is a modern, responsive web application built with React and TypeScript that allows users to discover and search from around the world. The app provides detailed recipe information including ingredients, cooking steps, and preparation time. It focuses on clean UI, efficient state management, and type-safe code for better maintainability and scalability.",
       sourceCode: "https://github.com/Aaron2578/recipes-app",
@@ -34,7 +36,7 @@ function Projects() {
     {
       id: 2,
       project_name: "Surya Tailor",
-      img: "./assets/surya-tailor.png",
+      img: "src/assets/surya-tailor.png",
       description:
         "Suriya Tailors is a modern, responsive business website designed for a tailoring service. Built with React and TypeScript, it highlights the tailor’s services, showcases quality craftsmanship, and provides easy contact options for customers. The website delivers a clean UI and smooth user experience, ensuring visitors can quickly explore tailoring services, view details, and reach out for appointments.",
       sourceCode: "https://github.com/Aaron2578/surya-tailor",
@@ -256,4 +258,3 @@ function Projects() {
 }
 
 export default Projects;
-
