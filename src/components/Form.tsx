@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ function ContactForm() {
   });
   const [status, setStatus] = useState("");
   const [isSending, setIsSending] = useState(false);
+
+  const navigate = useNavigate(); // For navigation
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -41,6 +44,9 @@ function ContactForm() {
       if (response.ok) {
         setStatus("✅ Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
+
+        // Navigate to thank-you page
+        navigate("/thank-you");
       } else {
         setStatus("❌ Something went wrong. Try again later.");
       }
@@ -89,11 +95,6 @@ function ContactForm() {
 
         {/* Hidden FormSubmit Fields */}
         <input type="hidden" name="_captcha" value="false" />
-        <input
-          type="hidden"
-          name="_next"
-          value="https://yourwebsite.com/thank-you"
-        />
         <input type="hidden" name="_template" value="table" />
 
         <button

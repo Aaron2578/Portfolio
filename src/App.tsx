@@ -6,6 +6,7 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Certificate from "./pages/Certificate";
 import Contactus from "./pages/Contactus";
+import ThankYou from "./pages/Thankyou";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/certificate" element={<Certificate />} />
           <Route path="/contactus" element={<Contactus />} />
+          <Route path="/thank-you" element={<ThankYou />} />
         </Routes>
       </BrowserRouter>
     </div>
