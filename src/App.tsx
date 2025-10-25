@@ -6,7 +6,7 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Certificate from "./pages/Certificate";
 import Contactus from "./pages/Contactus";
-import ThankYou from "./pages/Thankyou";
+import ThankYou from "./pages/ThankYou";
 
 function App() {
   return (
