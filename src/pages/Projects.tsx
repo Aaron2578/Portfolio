@@ -18,7 +18,7 @@ function Projects() {
     {
       id: 1,
       project_name: "Web Recipes",
-      img: "src/assets/recipes-img.png",
+      img: "../assets/recipes-img.png",
       description:
         "The Web Recipes App is a modern, responsive web application built with React and TypeScript that allows users to discover and search from around the world. The app provides detailed recipe information including ingredients, cooking steps, and preparation time. It focuses on clean UI, efficient state management, and type-safe code for better maintainability and scalability.",
       sourceCode: "https://github.com/Aaron2578/recipes-app",
