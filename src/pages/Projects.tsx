@@ -15,12 +15,23 @@ import { SiTailwindcss, SiTypescript } from "react-icons/si";
 import Button from "../components/Button";
 
 import pic from "../assets/recipes-img.png";
+import suryaTailor from "../assets/surya-tailor.png";
+import todoList from "../assets/todo_list.png";
+import positivus from "../assets/positivus.png";
+import weatherApp from "../assets/weatherApp.png";
+import instagramClone from "../assets/instagramClone.png";
+import matrimony from "../assets/matrimony.png";
+import bankFlow from "../assets/bankFlow.png";
+import qrCode from "../assets/qrCode.png";
+import eduSphere from "../assets/eduSphere.png";
+import sportifyEventz from "../assets/sportifyEventz.png";
+
 function Projects() {
   const projects = [
     {
       id: 1,
       project_name: "Web Recipes",
-      img:  pic ,
+      img: pic,
       description:
         "The Web Recipes App is a modern, responsive web application built with React and TypeScript that allows users to discover and search from around the world. The app provides detailed recipe information including ingredients, cooking steps, and preparation time. It focuses on clean UI, efficient state management, and type-safe code for better maintainability and scalability.",
       sourceCode: "https://github.com/Aaron2578/recipes-app",
@@ -36,7 +47,7 @@ function Projects() {
     {
       id: 2,
       project_name: "Surya Tailor",
-      img: "src/assets/surya-tailor.png",
+      img: suryaTailor,
       description:
         "Suriya Tailors is a modern, responsive business website designed for a tailoring service. Built with React and TypeScript, it highlights the tailor’s services, showcases quality craftsmanship, and provides easy contact options for customers. The website delivers a clean UI and smooth user experience, ensuring visitors can quickly explore tailoring services, view details, and reach out for appointments.",
       sourceCode: "https://github.com/Aaron2578/surya-tailor",
@@ -51,7 +62,7 @@ function Projects() {
     {
       id: 3,
       project_name: "To-Do List",
-      img: "src/assets/todo_list.png",
+      img: todoList,
       description:
         "The React To-Do List App is a productivity tool for task management.Users can add, edit, and delete tasks with a smooth workflow.Completed tasks are shown with a strike-through effect for clarity.The app dynamically displays the count of total, packed, and unpacked tasks.A clean and responsive interface is built using Tailwind CSS.The design ensures usability across both desktop and mobile devices.It demonstrates React concepts like components, hooks, and state management.This project is ideal for practicing React + Tailwind CSS while showcasing portfolio skills.",
       sourceCode: "https://github.com/Aaron2578/todo-list-react",
@@ -66,7 +77,7 @@ function Projects() {
     {
       id: 4,
       project_name: "Positivus - Marketing Website",
-      img: "src/assets/positivus.png",
+      img: positivus,
       description:
         "A sleek and professional landing page designed for modern businesses and digital agencies. Fully responsive across all devices, ensuring a seamless browsing experience. Clean, minimalist UI that puts the focus on content and brand messaging. Strategically placed CTAs to guide users toward key actions and conversions. Service sections that clearly highlight offerings and unique selling points. Testimonials to build trust and establish brand credibility. Optimized layout for fast loading and smooth navigation. Built using HTML, CSS (TailwindCSS), and React for maintainability and scalability. Perfect for brands aiming to boost their digital presence and customer engagement.",
       sourceCode: "https://github.com/Aaron2578/positivus",
@@ -81,7 +92,7 @@ function Projects() {
     {
       id: 5,
       project_name: "Weather Web App",
-      img: "src/assets/weatherApp.png",
+      img: weatherApp,
       description:
         "A weather web app project aims to provide users with accurate and real-time weather information through an intuitive and visually appealing platform. The application delivers current weather conditions, temperature, humidity, wind speed, and detailed forecasts for cities worldwide. Additional functionalities may include unit conversion (°C/°F), location-based updates, personalized weather alerts, and support for multiple cities. The project emphasizes responsive design, API integration, and clean user interfaces, helping developers strengthen their front-end skills while creating a reliable and engaging user experience.",
       sourceCode: "https://github.com/Aaron2578/weather-app",
@@ -96,7 +107,7 @@ function Projects() {
     {
       id: 6,
       project_name: "Instagram Clone",
-      img: "src/assets/instagramClone.png",
+      img: instagramClone,
       description:
         "The Instagram Clone is a fully responsive social media web application built using React and Tailwind CSS, mimicking the core functionalities of Instagram. It allows users to view posts, like, comment, and add new posts, with data persistence simulated using a JSON Server backend. The project demonstrates component-based architecture, state management, API integration, and a modern, mobile-first design approach.",
       sourceCode: "https://github.com/Aaron2578/instagram-clone",
@@ -112,7 +123,7 @@ function Projects() {
     {
       id: 7,
       project_name: "MatchVerse - Matrimony Website",
-      img: "src/assets/matrimony.png",
+      img: matrimony,
       description:
         "The Matrimony Website is a responsive web application designed to help users find potential life partners. Users can create profiles, browse matches, and connect with other members. The platform focuses on user-friendly navigation, secure data handling, and modern UI/UX design to provide a seamless matchmaking experience.",
       sourceCode: "https://github.com/Aaron2578/MatchVerse-matrimony",
@@ -127,7 +138,7 @@ function Projects() {
     {
       id: 8,
       project_name: "Bank Flow",
-      img: "src/assets/bankFlow.png",
+      img: bankFlow,
       description:
         "Bank Flow is a modern personal finance dashboard that empowers users to manage their income, expenses, and savings in a clean and intuitive interface. Built with React, the app allows users to track their financial transactions, visualize spending patterns, and open & close their account. The platform focuses on data privacy, real-time updates, and responsive design, ensuring users can manage their finances effectively across devices.",
       sourceCode: "https://github.com/Aaron2578/bank_account",
@@ -142,7 +153,7 @@ function Projects() {
     {
       id: 9,
       project_name: "Qr Code Generator",
-      img: "src/assets/qrCode.png",
+      img: qrCode,
       description:
         "The QR Code Generator is a web application that allows users to generate QR codes dynamically for URLs, text, or other data. Users can input information, scan it as an image.This project demonstrates real-time data handling, user input validation, and interactive UI design.",
       sourceCode: "https://github.com/Aaron2578/qr_code",
@@ -157,7 +168,7 @@ function Projects() {
     {
       id: 10,
       project_name: "EduSphere - Department Website",
-      img: "src/assets/eduSphere.png",
+      img: eduSphere,
       description:
         "The Department Website is a responsive web application designed to provide information about a college or university department. It highlights the department’s courses, faculty, research, events, and resources, offering an intuitive interface for students, faculty, and visitors. This project demonstrates clean UI/UX, component-based design, and responsive layouts, making information easy to access across devices.",
       liveProject: "https://mscs.netlify.app/",
@@ -176,7 +187,7 @@ function Projects() {
     {
       id: 10,
       project_name: "Sportify Eventz - Sports Website",
-      img: "src/assets/sportifyEventz.png",
+      img: sportifyEventz,
       description:
         "A sports website project aims to create an all-inclusive platform for sports enthusiasts, offering the latest news, live scores, detailed analyses, and interactive features. This project involves developing a user-friendly interface that provides seamless access to real-time updates, match schedules, player statistics, and expert opinions across various sports. The project enhances web development skills, including front-end design, back-end integration, and responsive design, ensuring a dynamic and engaging experience for all users.",
       sourceCode: "https://github.com/Aaron2578/sportify-eventz",
