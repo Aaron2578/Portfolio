@@ -34,7 +34,7 @@ function Projects() {
     {
       id: 2,
       project_name: "Surya Tailor",
-      img: "src/assets/surya-tailor.png",
+      img: "./assets/surya-tailor.png",
       description:
         "Suriya Tailors is a modern, responsive business website designed for a tailoring service. Built with React and TypeScript, it highlights the tailor’s services, showcases quality craftsmanship, and provides easy contact options for customers. The website delivers a clean UI and smooth user experience, ensuring visitors can quickly explore tailoring services, view details, and reach out for appointments.",
       sourceCode: "https://github.com/Aaron2578/surya-tailor",
@@ -256,3 +256,4 @@ function Projects() {
 }
 
 export default Projects;
+
