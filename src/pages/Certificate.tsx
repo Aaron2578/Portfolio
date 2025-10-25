@@ -1,32 +1,43 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
+import uiuxImg from "../assets/UIUX.png";
+import uiuxPDF from "../documents/Aaraon-UI&UX.pdf";
+import codeAlphaFrontImg from "../assets/codeAlphaFrontenddevelopmentInternship.png";
+import codeAlphaFrontPDF from "../documents/C.aaron.pdf";
+import codeAlphaWebImg from "../assets/codeAlphaWebdevelopmentInternship.png";
+import codeAlphaWebPDF from "../documents/C.aaron (2).pdf";
+import rinexInternImg from "../assets/rinexInternship.png";
+import rinexInternPDF from "../documents/Aaron C - Internship  Completion Certificate.pdf";
+import rinexWebImg from "../assets/rinexWebCourseCompletion.png";
+import rinexWebPDF from "../documents/Course completion certificate.pdf";
+
 function Certificate() {
   const certificate = [
     {
       name: "UI/UX Designer",
-      img: "src/assets/UIUX.png",
-      pdf: "src/documents/Aaraon-UI&UX.pdf",
+      img: uiuxImg,
+      pdf: uiuxPDF,
     },
     {
       name: "Frontend Development Internship",
-      img: "src/assets/codeAlphaFrontenddevelopmentInternship.png",
-      pdf: "src/documents/C.aaron.pdf",
+      img: codeAlphaFrontImg,
+      pdf: codeAlphaFrontPDF,
     },
     {
       name: "Web Development Internship",
-      img: "src/assets/codeAlphaWebdevelopmentInternship.png",
-      pdf: "src/documents/C.aaron (2).pdf",
+      img: codeAlphaWebImg,
+      pdf: codeAlphaWebPDF,
     },
     {
       name: "Web Development Internship",
-      img: "src/assets/rinexInternship.png",
-      pdf: "src/documents/Aaron C - Internship  Completion Certificate.pdf",
+      img: rinexInternImg,
+      pdf: rinexInternPDF,
     },
     {
       name: "Web Development",
-      img: "src/assets/rinexWebCourseCompletion.png",
-      pdf: "src/documents/Course completion certificate.pdf",
+      img: rinexWebImg,
+      pdf: rinexWebPDF,
     },
   ];
 
