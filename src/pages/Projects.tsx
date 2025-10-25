@@ -23,7 +23,7 @@ import instagramClone from "../assets/instagramClone.png";
 import matrimony from "../assets/matrimony.png";
 import bankFlow from "../assets/bankFlow.png";
 import qrCode from "../assets/qrCode.png";
-import eduSphere from "../assets/eduSphere.png";
+import eduSphere from "../assets/EduSphere.png";
 import sportifyEventz from "../assets/sportifyEventz.png";
 
 function Projects() {
