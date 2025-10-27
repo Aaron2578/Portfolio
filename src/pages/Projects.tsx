@@ -23,6 +23,7 @@ import instagramClone from "../assets/instagramClone.png";
 import matrimony from "../assets/matrimony.png";
 import bankFlow from "../assets/bankFlow.png";
 import qrCode from "../assets/qrCode.png";
+import profileCard from "../assets/profileCard.png";
 import eduSphere from "../assets/EduSphere.png";
 import sportifyEventz from "../assets/sportifyEventz.png";
 
@@ -167,6 +168,21 @@ function Projects() {
     },
     {
       id: 10,
+      project_name: "Profile Card",
+      img: profileCard,
+      description:
+        "A profile card is a modern UI component that showcases a person’s professional identity in a neat and attractive layout. It includes a profile image, name, job title, and a brief description, helping visitors quickly understand who the person is and what they do. It’s widely used in developer portfolios, team member sections, and user dashboards to make profiles visually engaging and easily accessible.",
+      sourceCode: "https://github.com/Aaron2578/profile-card",
+      liveProject: "https://aaron-profile-card.netlify.app/",
+      status: "Updating",
+      icon: [
+        <FaReact size={40} color="#61DAFB" />,
+        <FaCss3Alt size={40} color="#1572B6" />,
+      ],
+      view: "responsive",
+    },
+    {
+      id: 11,
       project_name: "EduSphere - Department Website",
       img: eduSphere,
       description:
@@ -185,7 +201,7 @@ function Projects() {
       btnDisplay: true,
     },
     {
-      id: 10,
+      id: 12,
       project_name: "Sportify Eventz - Sports Website",
       img: sportifyEventz,
       description:
