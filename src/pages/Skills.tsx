@@ -1,12 +1,14 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { Monitor, UserCheck, PenTool, Users, Activity } from "lucide-react";
+
 import {
   FaHtml5,
   FaCss3Alt,
   FaJsSquare,
   FaReact,
   FaBootstrap,
+  FaJava,
 } from "react-icons/fa"; // FontAwesome
 import {
   SiTailwindcss,
@@ -37,6 +39,7 @@ function Skills() {
   ];
   const programmingSkills = [
     { name: "Python", icon: <SiPython size={24} color="#3776AB" /> },
+    { name: "Java", icon: <FaJava size={24} color="#E76F00" /> },
   ];
 
   const uiuxSkills = [
