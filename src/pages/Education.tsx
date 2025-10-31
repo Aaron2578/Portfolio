@@ -10,12 +10,14 @@ function Education() {
       degree: "Master of Science",
       stream: "Computer Science",
       percentage: "92%",
+      year: 2025,
     },
     {
       id: 2,
       degree: "Bachelor of Science",
       stream: "Computer Science",
       percentage: "87%",
+      year: 2023,
     },
   ];
 
@@ -58,6 +60,9 @@ function Education() {
                   </p>
                   <p>
                     <strong>Percentage : </strong> {i.percentage}
+                  </p>
+                  <p>
+                    <strong>Year of passing : </strong> {i.year}
                   </p>
                 </div>
               </div>
