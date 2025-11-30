@@ -17,7 +17,7 @@ import {
   SiAdobeillustrator,
   SiTypescript,
   SiPython,
-  SiDjango, 
+  SiDjango,
   SiSpring,
   SiMongodb,
   // SiPowerbi,
@@ -36,17 +36,17 @@ function Skills() {
     { name: "TypeScript", icon: <SiTypescript size={24} color="#3178C6" /> },
   ];
   const frontEndFrameWorks = [
-     { name: "Bootstrap", icon: <FaBootstrap size={24} color="#7952B3" /> },
+    { name: "Bootstrap", icon: <FaBootstrap size={24} color="#7952B3" /> },
     { name: "React", icon: <FaReact size={24} color="#61DAFB" /> },
     { name: "Tailwind", icon: <SiTailwindcss size={24} color="#38B2AC" /> },
-  ]
+  ];
   const uiuxSkills = [
-       { name: "Wireframing", icon: <PenTool size={24} /> },
+    { name: "Wireframing", icon: <PenTool size={24} /> },
     { name: "Prototyping", icon: <Monitor size={24} /> },
-    { name: "Figma", icon: <SiFigma size={24} color="FF5733"/> },
-  ]
+    { name: "Figma", icon: <SiFigma size={24} color="FF5733" /> },
+  ];
   const backEndLanguages = [
-      { name: "Php", icon: <DiPhp size={24} color="#777BB4" /> },
+    { name: "Php", icon: <DiPhp size={24} color="#777BB4" /> },
     { name: "Python", icon: <SiPython size={24} color="#3776AB" /> },
     { name: "Java", icon: <FaJava size={24} color="#E76F00" /> },
   ];
@@ -66,7 +66,7 @@ function Skills() {
 
   const design = [
     { name: "Figma", icon: <SiFigma size={24} color="#F24E1E" /> },
-    
+
     { name: "Canva", icon: <FiPenTool size={24} color="#00C4CC" /> },
 
     {
@@ -105,53 +105,81 @@ function Skills() {
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
             Front-end Development
           </h2>
-          <div className="flex flex-wrap gap-3 my-5">
-            <span className="text-white pacifico-regular ml-15">Languages : </span>{renderSkills(frontEndLanguages)}
+          <div className="flex flex-wrap gap-3 my-10 md:my-5">
+            <span className="text-white pacifico-regular md:ml-15">
+              Languages :{" "}
+            </span>
+            {renderSkills(frontEndLanguages)}
           </div>
-          <div className="flex flex-wrap gap-3 my-5">
-            <span className="text-white pacifico-regular ml-15">Frameworks : </span>{renderSkills(frontEndFrameWorks)}
+          <div className="flex flex-wrap gap-3 my-10 md:my-5">
+            <span className="text-white pacifico-regular md:ml-15">
+              Frameworks :{" "}
+            </span>
+            {renderSkills(frontEndFrameWorks)}
           </div>
-          <div className="flex flex-wrap gap-3 my-5">
-            <span className="text-white pacifico-regular ml-15">Ui/Ux Skills : </span>{renderSkills(uiuxSkills)}
+          <div className="flex flex-wrap gap-3 my-10 md:my-5">
+            <span className="text-white pacifico-regular md:ml-15">
+              Ui/Ux Skills :{" "}
+            </span>
+            {renderSkills(uiuxSkills)}
           </div>
         </div>
         <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
             Back-end Development
           </h2>
-          <div className="flex flex-wrap gap-3 my-5">
-             <span className="text-white pacifico-regular ml-15">Languages : </span>{renderSkills(backEndLanguages)}
+          <div className="flex flex-wrap gap-3 my-10 md:my-5">
+            <span className="text-white pacifico-regular md:ml-15">
+              Languages :{" "}
+            </span>
+            {renderSkills(backEndLanguages)}
           </div>
-          <div className="flex flex-wrap gap-3 my-5">
-             <span className="text-white pacifico-regular ml-15">Frameworks : </span>{renderSkills(backEndFrameWorks)}
+          <div className="flex flex-wrap gap-3 my-10 md:my-5">
+            <span className="text-white pacifico-regular md:ml-15">
+              Frameworks :{" "}
+            </span>
+            {renderSkills(backEndFrameWorks)}
           </div>
-          <div className="flex flex-wrap gap-3 my-5">
-             <span className="text-white pacifico-regular ml-15">DataBase : </span>{renderSkills(dataBase)}
+          <div className="flex flex-wrap gap-3 my-10 md:my-5">
+            <span className="text-white pacifico-regular md:ml-15">
+              DataBase :{" "}
+            </span>
+            {renderSkills(dataBase)}
           </div>
         </div>
         <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
             Data Analytics
           </h2>
-          <div className="flex flex-wrap gap-3 my-5">
-             <span className="text-white pacifico-regular ml-15">Tools & Software : </span>{renderSkills(dataAnalytics)}
+          <div className="flex flex-wrap gap-3 my-10 md:my-5">
+            <span className="text-white pacifico-regular md:ml-15">
+              Tools & Software :{" "}
+            </span>
+            {renderSkills(dataAnalytics)}
           </div>
         </div>
 
         <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
-          Design & Creativity
+            Design & Creativity
           </h2>
-          <div className="flex flex-wrap gap-3 my-5">
-             <span className="text-white pacifico-regular ml-15">Tools : </span>{renderSkills(design)}</div>
+          <div className="flex flex-wrap gap-3 my-10 md:my-5">
+            <span className="text-white pacifico-regular md:ml-15">
+              Tools :{" "}
+            </span>
+            {renderSkills(design)}
+          </div>
         </div>
 
         <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
             Professional Skills
           </h2>
-          <div className="flex flex-wrap gap-3 my-5">
-             <span className="text-white pacifico-regular ml-15">Technical : </span>{renderSkills(professionalSkills)}
+          <div className="flex flex-wrap gap-3 my-10 md:my-5">
+            <span className="text-white pacifico-regular md:ml-15">
+              Technical :{" "}
+            </span>
+            {renderSkills(professionalSkills)}
           </div>
         </div>
       </div>
