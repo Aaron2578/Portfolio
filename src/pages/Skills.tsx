@@ -147,7 +147,7 @@ function Skills() {
             {renderSkills(dataBase)}
           </div>
         </div>
-        <div>
+        {/* <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
             Data Analytics
           </h2>
@@ -157,7 +157,7 @@ function Skills() {
             </span>
             {renderSkills(dataAnalytics)}
           </div>
-        </div>
+        </div> */}
 
         <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
