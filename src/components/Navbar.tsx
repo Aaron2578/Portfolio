@@ -146,6 +146,16 @@ function Navbar() {
                 isActive ? "text-white" : "text-gray-400 hover:text-white"
               }`
             }
+            to={"/experience"}
+          >
+            EXPERIENCE
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `font-semibold transition-colors duration-300 ${
+                isActive ? "text-white" : "text-gray-400 hover:text-white"
+              }`
+            }
             to={"/skills"}
           >
             SKILLS
