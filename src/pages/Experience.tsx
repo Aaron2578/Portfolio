@@ -34,7 +34,8 @@ const date = new Date().getFullYear()
           key={i.id}
         >
           <div className="flex justify-between items-center">
-            <div>{i.company} <span className="text-green-500 text-sm">({i.status})</span> {date  - i.from_year} year Experience</div>
+            <div>{i.company} <span className="text-green-500 text-sm">({i.status})</span> </div>
+            {/* {date  - i.from_year} year Experience */}
             <div>
               <button
                 className="bg-black text-white rounded-full"
