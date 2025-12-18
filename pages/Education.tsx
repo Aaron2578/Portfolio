@@ -7,7 +7,7 @@ function Education() {
   const education = [
     {
       id: 1,
-      degree: "Master of Science",
+      degree: "Master of Scienceee",
       stream: "Computer Science",
       percentage: "92%",
       year: 2025,
