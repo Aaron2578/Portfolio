@@ -4,19 +4,42 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 function Experience() {
- 
-const date = new Date().getFullYear()
-
   const experience = [
     {
       id: 1,
       company: "Techmaax",
       role: "Technical Trainer",
       from_year: 2025,
-      status:'Current',
-      experience:0,
-    }
+      from_date: "2025-11-03",
+      status: "Current",
+      experience: 0,
+    },
   ];
+
+const date = new Date().getFullYear();
+
+
+  const calculateExperience = (startDate: any) => {
+    const start = new Date(startDate);
+    const end = new Date();
+
+    let years = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth() - start.getMonth();
+    let days = end.getDate() - start.getDate();
+
+    if (days < 0) {
+      months--;
+      const prevMonth = new Date(end.getFullYear(), end.getMonth(), 0);
+      days += prevMonth.getDate();
+    }
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    return `${years} years ${months} months ${days} days`;
+  };
 
   // Track open state for each item
   const [openItems, setOpenItems] = useState<{ [key: number]: boolean }>({});
@@ -34,7 +57,11 @@ const date = new Date().getFullYear()
           key={i.id}
         >
           <div className="flex justify-between items-center">
-            <div>{i.company} <span className="text-green-500 text-sm">({i.status})</span> {date  - i.from_year} year Experience</div>
+            <div>
+              {i.company}{" "}
+              <span className="text-green-500 text-sm">({i.status})</span>{" "}
+            </div>
+            {/* {date  - i.from_year} year Experience */}
             <div>
               <button
                 className="bg-black text-white rounded-full"
@@ -56,10 +83,16 @@ const date = new Date().getFullYear()
                     <strong>Role : </strong> {i.role}
                   </p>
                   <p>
-                    <strong>Year : </strong> {i.from_year} <span></span>{i.from_year == date || ` - ${date} (Present)`}
-                  </p>
+  <strong>Year : </strong>
+  {i.from_year}
+  {i.status === "Current" && ` - ${date} (Present)`}
+  {i.status != "Current" && ` - ${date}`}
+</p>
+
+
                   <p>
-                    <strong>Experience : </strong> {date  - i.from_year} year Experience
+                    <strong>Experience : </strong>{" "}
+                    {calculateExperience(i.from_date)}
                   </p>
                 </div>
               </div>
