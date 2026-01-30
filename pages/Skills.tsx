@@ -21,10 +21,10 @@ import {
   SiSpring,
   SiMongodb,
   // SiPowerbi,
-  // SiTableau,
+  SiTableau,
 } from "react-icons/si"; // SimpleIcons
 import { DiPhp, DiMysql } from "react-icons/di";
-// import { MdInsertChart } from "react-icons/md"; // Material Design Icons
+import { MdInsertChart } from "react-icons/md"; // Material Design Icons
 import { FiPenTool } from "react-icons/fi"; // Feather icons
 
 function Skills() {
@@ -59,10 +59,10 @@ function Skills() {
     { name: "MySql", icon: <DiMysql size={24} color="#4479A1" /> },
     { name: "MongoDB", icon: <SiMongodb size={24} color="#47A248" /> },
   ];
-  // const dataAnalytics = [
-  //   { name: "Power BI", icon: <MdInsertChart size={24} color="#4479A1" /> },
-  //   { name: "Tableau", icon: <SiTableau size={24} color="#47A248" /> },
-  // ];
+  const dataAnalytics = [
+    { name: "Power BI", icon: <MdInsertChart size={24} color="#4479A1" /> },
+    { name: "Tableau", icon: <SiTableau size={24} color="#47A248" /> },
+  ];
 
   const design = [
     { name: "Figma", icon: <SiFigma size={24} color="#F24E1E" /> },
@@ -147,7 +147,7 @@ function Skills() {
             {renderSkills(dataBase)}
           </div>
         </div>
-        {/* <div>
+        <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
             Data Analytics
           </h2>
@@ -157,7 +157,7 @@ function Skills() {
             </span>
             {renderSkills(dataAnalytics)}
           </div>
-        </div> */}
+        </div>
 
         <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
