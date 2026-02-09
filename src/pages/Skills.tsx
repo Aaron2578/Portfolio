@@ -9,6 +9,7 @@ import {
   FaReact,
   FaBootstrap,
   FaJava,
+  FaFileExcel,
 } from "react-icons/fa"; // FontAwesome
 import {
   SiTailwindcss,
@@ -20,12 +21,13 @@ import {
   SiDjango,
   SiSpring,
   SiMongodb,
-  // SiPowerbi,
-  // SiTableau,
+  SiTableau,
+  // SiMicrosoftexcel,
 } from "react-icons/si"; // SimpleIcons
 import { DiPhp, DiMysql } from "react-icons/di";
-// import { MdInsertChart } from "react-icons/md"; // Material Design Icons
+import { MdInsertChart } from "react-icons/md"; // Material Design Icons
 import { FiPenTool } from "react-icons/fi"; // Feather icons
+
 
 function Skills() {
   // Front-end skills with proper icons
@@ -43,7 +45,7 @@ function Skills() {
   const uiuxSkills = [
     { name: "Wireframing", icon: <PenTool size={24} /> },
     { name: "Prototyping", icon: <Monitor size={24} /> },
-    { name: "Figma", icon: <SiFigma size={24} color="FF5733" /> },
+    { name: "Figma", icon: <SiFigma size={24} color="#F24E1E" /> },
   ];
   const backEndLanguages = [
     { name: "Php", icon: <DiPhp size={24} color="#777BB4" /> },
@@ -59,10 +61,13 @@ function Skills() {
     { name: "MySql", icon: <DiMysql size={24} color="#4479A1" /> },
     { name: "MongoDB", icon: <SiMongodb size={24} color="#47A248" /> },
   ];
-  // const dataAnalytics = [
-  //   { name: "Power BI", icon: <MdInsertChart size={24} color="#4479A1" /> },
-  //   { name: "Tableau", icon: <SiTableau size={24} color="#47A248" /> },
-  // ];
+  const dataAnalytics = [
+    { name: "Microsoft Excel", icon: <FaFileExcel size={22} color="#217346" /> },
+    { name: "MySql", icon: <DiMysql size={24} color="#4479A1" /> },
+    { name: "Power BI", icon: <MdInsertChart size={24} color="#4479A1" /> },
+    { name: "Tableau", icon: <SiTableau size={24} color="#47A248" /> },
+    { name: "Python", icon: <SiPython size={24} color="#3776AB" /> },
+  ];
 
   const design = [
     { name: "Figma", icon: <SiFigma size={24} color="#F24E1E" /> },
@@ -147,7 +152,7 @@ function Skills() {
             {renderSkills(dataBase)}
           </div>
         </div>
-        {/* <div>
+        <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
             Data Analytics
           </h2>
@@ -157,7 +162,7 @@ function Skills() {
             </span>
             {renderSkills(dataAnalytics)}
           </div>
-        </div> */}
+        </div> 
 
         <div>
           <h2 className="text-xl font-semibold mb-3 text-white tagesschrift-regular">
