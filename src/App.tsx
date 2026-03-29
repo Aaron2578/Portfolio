@@ -6,7 +6,7 @@ import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Certificate from "./pages/Certificate";
-import Feedback from "./pages/Feedback.tsx"
+import Feedback from "./pages/Feedback";
 import Contactus from "./pages/Contactus";
 import ThankYou from "./pages/ThankYou";
 import Design from "./pages/Design";
