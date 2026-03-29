@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FeedbackCard from "../components/FeedbackCard";
-import  type { Feedback } from "../types/Feedback";
+import  type { Feedback as FeedbackType } from "../types/Feedback";
 
 const Feedback: React.FC = () => {
-  const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
+  const [feedbacks, setFeedbacks] = useState<FeedbackType[]>([]);
 
   useEffect(() => {
     fetch("https://feedback-json-new.onrender.com/feedback")
       .then((res) => res.json())
-      .then((data: Feedback[]) => setFeedbacks(data));
+      .then((data: FeedbackType[]) => setFeedbacks(data));
   }, []);
 
   return (
