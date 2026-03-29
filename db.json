@@ -1,0 +1,26 @@
+{
+  "feedback": [
+    {
+      "timestamp": "2026-01-19T21:46:37",
+      "email": "vigneshwiky51@gmail.com",
+      "name": "Vignesh R",
+      "degree": "BCA",
+      "designation": "Student",
+      "course": "FullStack Java",
+      "rating": 5,
+      "review": "Teaching is so good and superb understandable. He has incredibly knowledgeable and patient. He has a great way of breaking down complex backend concepts and making them easy to understand. Through this course, I gained hands-on experience with Java, Spring Boot, and frontend technologies. I now feel much more confident in my coding abilities. Highly recommended for anyone looking to start their career in tech!.",
+      "useForDashboard": true
+    },
+    {
+      "timestamp": "2026-03-26T18:15:38",
+      "email": "dixonddr12345678@gmail.com",
+      "name": "Dixon A",
+      "degree": "B.Sc Computer Science",
+      "designation": "Student",
+      "course": "FullStack Java",
+      "rating": 5,
+      "review": "Explain Concepts Clearly with real-time example, making it easy to understand even complex topics. Hands-on practice sessions and project helped me improve my coding skills and confidence.",
+      "useForDashboard": true
+    }
+  ]
+}

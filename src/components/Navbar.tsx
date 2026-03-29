@@ -40,7 +40,7 @@ function Navbar() {
         >
           ABOUT
         </NavLink>
-        <NavLink
+        {/* <NavLink
           className={({ isActive }) =>
             `font-semibold transition-colors duration-300 ${
               isActive ? "text-white" : "text-gray-400 hover:text-white"
@@ -49,7 +49,7 @@ function Navbar() {
           to={"/education"}
         >
           EDUCATION
-        </NavLink>
+        </NavLink> */}
         <NavLink
           className={({ isActive }) =>
             `font-semibold transition-colors duration-300 ${
@@ -106,6 +106,16 @@ function Navbar() {
               isActive ? "text-white" : "text-gray-400 hover:text-white"
             }`
           }
+          to={"/feedback"}
+        >
+          FEEDBACK
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `font-semibold transition-colors duration-300 ${
+              isActive ? "text-white" : "text-gray-400 hover:text-white"
+            }`
+          }
           to={"/contactus"}
         >
           CONTACT
@@ -140,7 +150,7 @@ function Navbar() {
           >
             ABOUT
           </NavLink>
-          <NavLink
+          {/* <NavLink
             className={({ isActive }) =>
               `font-semibold transition-colors duration-300 ${
                 isActive ? "text-white" : "text-gray-400 hover:text-white"
@@ -149,7 +159,7 @@ function Navbar() {
             to={"/education"}
           >
             EDUCATION
-          </NavLink>
+          </NavLink> */}
           <NavLink
             className={({ isActive }) =>
               `font-semibold transition-colors duration-300 ${
@@ -199,6 +209,16 @@ function Navbar() {
             to={"/certificate"}
           >
             CERTIFICATE
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `font-semibold transition-colors duration-300 ${
+                isActive ? "text-white" : "text-gray-400 hover:text-white"
+              }`
+            }
+            to={"/feedback"}
+          >
+            FEEDBACK
           </NavLink>
           <NavLink
             className={({ isActive }) =>
