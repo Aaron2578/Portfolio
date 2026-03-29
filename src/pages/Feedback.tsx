@@ -43,4 +43,4 @@ const Feedback: React.FC = () => {
   );
 };
 
-export 
+export default Feedback;
