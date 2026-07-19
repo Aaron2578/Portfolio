@@ -1,6 +1,9 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
+import powerbi from "../assets/Power BI Course.png";
+import powerbiPDF from "../documents/Power BI Course.pdf";
+
 import uiuxImg from "../assets/UIUX.png";
 import uiuxPDF from "../documents/Aaraon-UI&UX.pdf";
 
@@ -21,7 +24,17 @@ import { motion } from "framer-motion";
 function Certificate() {
   const certificateCategories = [
     {
-      category: "🎨 UI/UX Design",
+      category: "📊 Power BI Course",
+      certificates: [
+        {
+          name: "Power BI Analyst",
+          img: powerbi,
+          pdf: powerbiPDF,
+        },
+      ],
+    },
+    {
+      category: "🎨 UI/UX Design Internship",
       certificates: [
         {
           name: "UI/UX Designer",
@@ -34,7 +47,7 @@ function Certificate() {
       category: "💻 Development Certifications",
       certificates: [
         {
-          name: "Web Development",
+          name: "Web Development Course",
           img: rinexWebImg,
           pdf: rinexWebPDF,
         },
