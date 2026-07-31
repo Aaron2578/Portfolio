@@ -19,17 +19,25 @@ import rinexInternPDF from "../documents/Aaron C - Internship  Completion Certif
 import rinexWebImg from "../assets/rinexWebCourseCompletion.png";
 import rinexWebPDF from "../documents/Course completion certificate.pdf";
 
+import excelQuizImg from "../assets/excel quiz.png";
+import pythonMicroCourseImg from "../assets/Python Micro COurse.jpeg";
+
 import { motion } from "framer-motion";
 
 function Certificate() {
   const certificateCategories = [
     {
-      category: "📊 Power BI Course",
+      category: "📊 Data & Analytics Certifications",
       certificates: [
         {
           name: "Power BI Analyst",
           img: powerbi,
           pdf: powerbiPDF,
+        },
+        {
+          name: "Excel Quiz Certificate",
+          img: excelQuizImg,
+          pdf: excelQuizImg,
         },
       ],
     },
@@ -50,6 +58,11 @@ function Certificate() {
           name: "Web Development Course",
           img: rinexWebImg,
           pdf: rinexWebPDF,
+        },
+        {
+          name: "Python Micro Course",
+          img: pythonMicroCourseImg,
+          pdf: pythonMicroCourseImg,
         },
       ],
     },

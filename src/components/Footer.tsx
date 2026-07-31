@@ -1,7 +1,7 @@
 function Footer() {
   const date = new Date().getFullYear();
   return (
-    <div className="hover:text-black bg-white w-full md:max-w-none md:bg-none text-gray-600 text-sm md:text-md text-center rounded-b-lg py-2 cursor-pointer montserrat fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50">
+    <div className="w-full bg-slate-950/80 border-t border-white/5 text-gray-500 hover:text-white text-sm text-center py-6 montserrat mt-auto transition-colors duration-500 relative z-10">
       <p>Created by Aaron &copy; {date} All Rights Reserved</p>
     </div>
   );
