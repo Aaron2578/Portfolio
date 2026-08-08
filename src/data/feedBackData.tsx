@@ -166,4 +166,30 @@ export const feedbackData = [{
     "Aaron shared the concepts in a clear, step-by-step manner, making the course easy to understand. He was highly knowledgeable, approachable, and explained every topic by breaking down complex concepts into simple, easy-to-understand lessons. His teaching style made learning engaging, practical, and effective. I truly enjoyed the sessions and would highly recommend his training.",
   useForDashboard: true,
 },
+{
+    id: 14,
+    timestamp: "2026-08-05T18:39:20",
+    email: "tamilvalga1983@gmail.com",
+    name: "S. P. Sakthivel",
+    degree: "8th Grade",
+    designation: "Student",
+    course: "Full Stack Python",
+    rating: 5,
+    review:
+      "The concepts were explained in a neat and clear manner, making the Full Stack Python classes easy to understand.",
+    useForDashboard: true,
+  },
+  {
+    id: 15,
+    timestamp: "2026-08-08T11:55:15",
+    email: "",
+    name: "Keerthana",
+    degree: "B.Com",
+    designation: "Officer",
+    course: "Advanced Excel",
+    rating: 5,
+    review:
+      "The training was good and easy to follow.",
+    useForDashboard: true,
+  },
 ];
