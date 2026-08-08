@@ -172,7 +172,7 @@ export const feedbackData = [{
     email: "tamilvalga1983@gmail.com",
     name: "S. P. Sakthivel",
     degree: "8th Grade",
-    designation: "Student",
+    designation: "School Student",
     course: "Full Stack Python",
     rating: 5,
     review:
