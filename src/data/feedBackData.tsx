@@ -185,7 +185,7 @@ export const feedbackData = [{
     email: "",
     name: "Keerthana",
     degree: "B.Com",
-    designation: "Officer",
+    designation: "Job Seeker",
     course: "Advanced Excel",
     rating: 5,
     review:
