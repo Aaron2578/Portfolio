@@ -192,4 +192,17 @@ export const feedbackData = [{
       "The training was good and easy to follow.",
     useForDashboard: true,
   },
+{
+  id: 16,
+  timestamp: "2026-08-10T17:11:09",
+  email: "",
+  name: "Vignesh N",
+  degree: "MBA",
+  designation: "Engineering Student",
+  course: "FullStack Java",
+  rating: 5,
+  review:
+    "Aron Sir is one of the best trainers I have learned from. He explains every concept very clearly and patiently, even when we ask the same doubts multiple times. His teaching style is simple, practical, and easy to understand. He always motivates us to learn, practice, and improve our skills. He is very friendly with students and always ready to clear our doubts. I learned Full Stack Java from him, and his guidance helped me improve my technical knowledge and confidence. I am really thankful for his valuable guidance, support, and motivation.",
+  useForDashboard: true,
+},
 ];
