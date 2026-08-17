@@ -13,7 +13,7 @@ function Experience() {
       mode: "Onsite",
       from_date: "2025-11-03",
       to_date: 2026-05-31,
-      status: "Current",
+      status: "Completed",
       responsibilities: [
         "Conducting hands-on technical training sessions on software development and 3D design tools.",
         "Guiding students and professionals through practical real-world projects and technical problem solving.",
