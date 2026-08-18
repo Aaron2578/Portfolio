@@ -12,8 +12,8 @@ function Experience() {
       role: "Technical Trainer",
       mode: "Onsite",
       from_date: "2025-11-03",
-      to_date: "2026-05-31",
-      status: "Completed",
+      to_date: undefined,
+      status: "Current",
       responsibilities: [
         "Conducting hands-on technical training sessions on software development and 3D design tools.",
         "Guiding students and professionals through practical real-world projects and technical problem solving.",
