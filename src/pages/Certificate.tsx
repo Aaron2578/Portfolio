@@ -22,13 +22,56 @@ import rinexWebPDF from "../documents/Course completion certificate.pdf";
 import excelQuizImg from "../assets/excel quiz.png";
 import pythonMicroCourseImg from "../assets/Python Micro COurse.jpeg";
 
+import databricksGenAIImg from "../assets/databricks_generative_ai_fundamentals.png";
+import milesAIImg from "../assets/miles_ai_in_accounting_101.png";
+import simplilearnDSImg from "../assets/simplilearn_data_science.png";
+import guviAIImg from "../assets/guvi_hcl_generative_ai.png";
+
 import { motion } from "framer-motion";
 
+interface CertificateItem {
+  name: string;
+  img: string;
+  pdf: string;
+  credentialId?: string;
+  issued?: string;
+}
+
+interface CertificateCategory {
+  category: string;
+  certificates: CertificateItem[];
+}
+
 function Certificate() {
-  const certificateCategories = [
+  const certificateCategories: CertificateCategory[] = [
+    {
+      category: "🤖 Generative AI & AI Certifications",
+      certificates: [
+        {
+          name: "Databricks Accredited Generative AI Fundamentals",
+          img: databricksGenAIImg,
+          pdf: databricksGenAIImg,
+        },
+        {
+          name: "AI in Accounting 101: CAIRA Essential Badge",
+          img: milesAIImg,
+          pdf: milesAIImg,
+        },
+        {
+          name: "Master the Power of Generative AI (HCL GUVI)",
+          img: guviAIImg,
+          pdf: guviAIImg,
+        },
+      ],
+    },
     {
       category: "📊 Data & Analytics Certifications",
       certificates: [
+        {
+          name: "Simplilearn Data Science Course",
+          img: simplilearnDSImg,
+          pdf: simplilearnDSImg,
+        },
         {
           name: "Power BI Analyst",
           img: powerbi,
@@ -158,11 +201,28 @@ function Certificate() {
 
                     {/* Content */}
                     <div className="p-5 flex flex-col justify-between flex-grow">
-                      <h4 className="text-white font-bold text-[15px] montserrat text-center group-hover:text-cyan-300 transition-colors">
-                        {cert.name}
-                      </h4>
+                      <div className="flex flex-col gap-2">
+                        <h4 className="text-white font-bold text-[15px] montserrat text-center group-hover:text-cyan-300 transition-colors">
+                          {cert.name}
+                        </h4>
 
-                      <p className="text-slate-400 text-xs text-center font-mono mt-3 uppercase tracking-wider">
+                        {(cert.credentialId || cert.issued) && (
+                          <div className="flex flex-col gap-1 text-xs text-center text-slate-400 font-mono mt-2">
+                            {cert.credentialId && (
+                              <span className="text-cyan-400/95">
+                                Credential ID: {cert.credentialId}
+                              </span>
+                            )}
+                            {cert.issued && (
+                              <span>
+                                Issued: {cert.issued}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      <p className="text-slate-400 text-xs text-center font-mono mt-4 uppercase tracking-wider">
                         Click to view credential
                       </p>
                     </div>
