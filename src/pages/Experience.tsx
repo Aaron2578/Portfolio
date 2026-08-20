@@ -26,7 +26,7 @@ function Experience() {
       role: "UI/UX Design Intern",
       mode: "Virtual",
       from_date: "2024-10-01",
-      to_date: "2025-03-26",
+      to_date: "2025-03-27",
       status: "Completed",
       responsibilities: [
         "Designed high-fidelity wireframes, interactive prototypes, and user flows using Figma.",
