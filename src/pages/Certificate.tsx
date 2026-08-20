@@ -26,6 +26,10 @@ import databricksGenAIImg from "../assets/databricks_generative_ai_fundamentals.
 import milesAIImg from "../assets/miles_ai_in_accounting_101.png";
 import simplilearnDSImg from "../assets/simplilearn_data_science.png";
 import guviAIImg from "../assets/guvi_hcl_generative_ai.png";
+import besantTestingImg from "../assets/besant_software_testing.png";
+import guviPythonTamilImg from "../assets/guvi_python_tamil.png";
+import guviAIForIndiaImg from "../assets/guvi_ai_for_india.png";
+import fivesqlAdvancedImg from "../assets/fivesql_quiz_advanced.png";
 
 import { motion } from "framer-motion";
 
@@ -35,6 +39,7 @@ interface CertificateItem {
   pdf: string;
   credentialId?: string;
   issued?: string;
+  provider?: string;
 }
 
 interface CertificateCategory {
@@ -51,16 +56,30 @@ function Certificate() {
           name: "Databricks Accredited Generative AI Fundamentals",
           img: databricksGenAIImg,
           pdf: databricksGenAIImg,
+          credentialId: "191037528",
+          issued: "August 9, 2026",
+          provider: "Databricks",
         },
         {
           name: "AI in Accounting 101: CAIRA Essential Badge",
           img: milesAIImg,
           pdf: milesAIImg,
+          issued: "August 10, 2026",
+          provider: "Miles Education & CAIRA",
         },
         {
-          name: "Master the Power of Generative AI (HCL GUVI)",
+          name: "Master the Power of Generative AI",
           img: guviAIImg,
           pdf: guviAIImg,
+          issued: "August 14, 2026",
+          provider: "GUVI & HCL",
+        },
+        {
+          name: "AI For India 2.0",
+          img: guviAIForIndiaImg,
+          pdf: guviAIForIndiaImg,
+          issued: "August 15, 2023",
+          provider: "GUVI & Skill India",
         },
       ],
     },
@@ -68,19 +87,34 @@ function Certificate() {
       category: "📊 Data & Analytics Certifications",
       certificates: [
         {
-          name: "Simplilearn Data Science Course",
+          name: "SQL - Advanced Quiz",
+          img: fivesqlAdvancedImg,
+          pdf: fivesqlAdvancedImg,
+          credentialId: "SQL-QUIZ-466413",
+          issued: "June 2026",
+          provider: "FiveSQL",
+        },
+        {
+          name: "Data Science Course",
           img: simplilearnDSImg,
           pdf: simplilearnDSImg,
+          credentialId: "10590144",
+          issued: "August 12, 2026",
+          provider: "Simplilearn",
         },
         {
           name: "Power BI Analyst",
           img: powerbi,
           pdf: powerbiPDF,
+          issued: "July 17, 2026",
+          provider: "SkillCourse",
         },
         {
           name: "Excel Quiz Certificate",
           img: excelQuizImg,
           pdf: excelQuizImg,
+          issued: "July 23, 2026",
+          provider: "SkillCourse",
         },
       ],
     },
@@ -91,6 +125,8 @@ function Certificate() {
           name: "UI/UX Designer",
           img: uiuxImg,
           pdf: uiuxPDF,
+          issued: "March 31, 2025",
+          provider: "Rendercity Technologies",
         },
       ],
     },
@@ -98,14 +134,40 @@ function Certificate() {
       category: "💻 Development Certifications",
       certificates: [
         {
+          name: "Python Programming Course",
+          img: guviPythonTamilImg,
+          pdf: guviPythonTamilImg,
+          credentialId: "229566664V111L0901",
+          issued: "August 14, 2023",
+          provider: "GUVI & HCL",
+        },
+        {
           name: "Web Development Course",
           img: rinexWebImg,
           pdf: rinexWebPDF,
+          credentialId: "WD23-RNC0-9002",
+          issued: "September 5, 2023",
+          provider: "Rinex Organization",
         },
         {
           name: "Python Micro Course",
           img: pythonMicroCourseImg,
           pdf: pythonMicroCourseImg,
+          issued: "July 24, 2026",
+          provider: "SkillCourse",
+        },
+      ],
+    },
+    {
+      category: "🧪 Software Testing Certifications",
+      certificates: [
+        {
+          name: "Software Testing Training",
+          img: besantTestingImg,
+          pdf: besantTestingImg,
+          credentialId: "BFT207B061",
+          issued: "September 30, 2023",
+          provider: "Besant Technologies",
         },
       ],
     },
@@ -116,16 +178,24 @@ function Certificate() {
           name: "Frontend Development Internship",
           img: codeAlphaFrontImg,
           pdf: codeAlphaFrontPDF,
+          credentialId: "CA/FD1/11581",
+          issued: "June 4, 2024",
+          provider: "CodeAlpha",
         },
         {
           name: "Web Development Internship",
           img: codeAlphaWebImg,
           pdf: codeAlphaWebPDF,
+          issued: "November 20, 2023",
+          provider: "CodeAlpha",
         },
         {
           name: "Web Development Internship",
           img: rinexInternImg,
           pdf: rinexInternPDF,
+          credentialId: "WD23-RNI0-9002",
+          issued: "November 25, 2023",
+          provider: "Rinex Technologies",
         },
       ],
     },
@@ -145,14 +215,11 @@ function Certificate() {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" as const } },
   };
 
-
-
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-white">
       <Header />
 
       <section className="flex-grow w-[90%] max-w-5xl mx-auto py-12">
-        {/* Page Heading */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent montserrat inline-block">
             Certifications
@@ -164,16 +231,13 @@ function Certificate() {
           <div className="w-12 h-1 bg-blue-600 mx-auto mt-3 rounded-full" />
         </div>
 
-        {/* Categories */}
         <div className="flex flex-col gap-12">
           {certificateCategories.map((category) => (
             <div key={category.category} className="flex flex-col gap-6">
-              {/* Category Title */}
               <h3 className="text-lg font-bold border-l-4 border-cyan-400 pl-3 text-white montserrat uppercase tracking-wider">
                 {category.category}
               </h3>
 
-              {/* Cards Grid */}
               <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
                 variants={containerVariants}
@@ -190,7 +254,6 @@ function Certificate() {
                     variants={cardVariants}
                     className="group bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-3xl overflow-hidden hover:border-cyan-400/50 hover:bg-slate-900/50 transition-all duration-300 hover:scale-[1.02] shadow-xl flex flex-col h-full"
                   >
-                    {/* Image Wrapper */}
                     <div className="overflow-hidden aspect-video bg-slate-950 flex items-center justify-center border-b border-white/5">
                       <img
                         src={cert.img}
@@ -199,15 +262,20 @@ function Certificate() {
                       />
                     </div>
 
-                    {/* Content */}
                     <div className="p-5 flex flex-col justify-between flex-grow">
-                      <div className="flex flex-col gap-2">
-                        <h4 className="text-white font-bold text-[15px] montserrat text-center group-hover:text-cyan-300 transition-colors">
+                      <div className="flex flex-col gap-2 text-center">
+                        {cert.provider && (
+                          <span className="text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                            {cert.provider}
+                          </span>
+                        )}
+
+                        <h4 className="text-white font-bold text-[15px] montserrat group-hover:text-cyan-300 transition-colors">
                           {cert.name}
                         </h4>
 
                         {(cert.credentialId || cert.issued) && (
-                          <div className="flex flex-col gap-1 text-xs text-center text-slate-400 font-mono mt-2">
+                          <div className="flex flex-col gap-1 text-xs text-slate-400 font-mono mt-2">
                             {cert.credentialId && (
                               <span className="text-cyan-400/95">
                                 Credential ID: {cert.credentialId}
