@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -21,6 +22,7 @@ import rinexWebPDF from "../documents/Course completion certificate.pdf";
 
 import excelQuizImg from "../assets/excel quiz.png";
 import pythonMicroCourseImg from "../assets/Python Micro COurse.jpeg";
+import uniathenaExcelImg from "../assets/uniathena_excel.png";
 
 import databricksGenAIImg from "../assets/databricks_generative_ai_fundamentals.png";
 import milesAIImg from "../assets/miles_ai_in_accounting_101.png";
@@ -86,6 +88,14 @@ function Certificate() {
     {
       category: "📊 Data & Analytics Certifications",
       certificates: [
+        {
+          name: "Essentials of MS Excel - Formulas and Functions",
+          img: uniathenaExcelImg,
+          pdf: uniathenaExcelImg,
+          credentialId: "2051-9132-7379",
+          issued: "August 2026",
+          provider: "UniAthena",
+        },
         {
           name: "SQL - Advanced Quiz",
           img: fivesqlAdvancedImg,
@@ -215,28 +225,89 @@ function Certificate() {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" as const } },
   };
 
+  const getCertificateType = (cert: CertificateItem, categoryName: string): 'course' | 'quiz' | 'internship' => {
+    const name = cert.name.toLowerCase();
+    const cat = categoryName.toLowerCase();
+
+    if (name.includes("quiz")) {
+      return "quiz";
+    }
+    if (cat.includes("internship") || name.includes("internship")) {
+      return "internship";
+    }
+    return "course";
+  };
+
+  const totalCertificates = certificateCategories.reduce((acc, cat) => acc + cat.certificates.length, 0);
+
+  const [selectedType, setSelectedType] = useState("All");
+
+  const filterTypes = ["All", "Courses", "Quizzes", "Internships"];
+
+  const filteredCategories = certificateCategories.map(cat => ({
+    ...cat,
+    certificates: cat.certificates.filter(cert => {
+      const type = getCertificateType(cert, cat.category);
+      if (selectedType === "All") return true;
+      if (selectedType === "Courses") return type === "course";
+      if (selectedType === "Quizzes") return type === "quiz";
+      if (selectedType === "Internships") return type === "internship";
+      return true;
+    })
+  })).filter(cat => cat.certificates.length > 0);
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-white">
       <Header />
 
       <section className="flex-grow w-[90%] max-w-5xl mx-auto py-12">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 flex flex-col items-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent montserrat inline-block">
             Certifications
           </h2>
 
-          <p className="text-gray-400 mt-2 text-sm sm:text-base">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 mt-3 bg-blue-950/40 border border-blue-500/20 rounded-full text-xs text-blue-300 font-mono">
+            <span>🏆 Total Credentials:</span>
+            <span className="font-bold text-blue-400">{totalCertificates}</span>
+          </div>
+
+
+          <p className="text-gray-400 mt-6 text-sm sm:text-base max-w-2xl">
             A collection of certifications, internships, and achievements that showcase my learning journey and professional growth.
           </p>
-          <div className="w-12 h-1 bg-blue-600 mx-auto mt-3 rounded-full" />
+          <div className="w-12 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
+        </div>
+
+        {/* Filters */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10 max-w-3xl mx-auto">
+          {filterTypes.map((type) => {
+            const isSelected = selectedType === type;
+            return (
+              <button
+                key={type}
+                onClick={() => setSelectedType(type)}
+                className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer ${isSelected
+                    ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
+                    : "bg-slate-900/60 text-slate-300 hover:bg-slate-900 border border-white/5 hover:border-cyan-500/30"
+                  }`}
+              >
+                {type}
+              </button>
+            );
+          })}
         </div>
 
         <div className="flex flex-col gap-12">
-          {certificateCategories.map((category) => (
+          {filteredCategories.map((category) => (
             <div key={category.category} className="flex flex-col gap-6">
-              <h3 className="text-lg font-bold border-l-4 border-cyan-400 pl-3 text-white montserrat uppercase tracking-wider">
-                {category.category}
-              </h3>
+              <div className="flex flex-wrap items-center justify-between gap-4 border-l-4 border-cyan-400 pl-3">
+                <h3 className="text-lg font-bold text-white montserrat uppercase tracking-wider">
+                  {category.category}
+                </h3>
+                <span className="text-xs bg-cyan-950/60 text-cyan-400 border border-cyan-500/20 px-3 py-1 rounded-full font-mono font-semibold">
+                  {category.certificates.length} {category.certificates.length === 1 ? 'Credential' : 'Credentials'}
+                </span>
+              </div>
 
               <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
