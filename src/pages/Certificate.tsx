@@ -33,6 +33,8 @@ import guviPythonTamilImg from "../assets/guvi_python_tamil.png";
 import guviAIForIndiaImg from "../assets/guvi_ai_for_india.png";
 import fivesqlAdvancedImg from "../assets/fivesql_quiz_advanced.png";
 
+import fivesqlAdvancedImg from "../assets/fivesql_quiz_advanced.png";
+
 import { motion } from "framer-motion";
 
 interface CertificateItem {
@@ -90,9 +92,15 @@ function Certificate() {
       certificates: [
         {
           name: "Essentials of MS Excel - Formulas and Functions",
+<<<<<<< HEAD
           img: uniathenaExcelImg,
           pdf: uniathenaExcelImg,
           credentialId: "2051-9132-7379",
+=======
+          img: fivesqlAdvancedImg,
+          pdf: fivesqlAdvancedImg,
+          credentialId: "SQL-QUIZ-466413",
+>>>>>>> 5d7bc29e6f9f106b1a17ed09b31665d076b7a0ee
           issued: "August 2026",
           provider: "UniAthena",
         },
