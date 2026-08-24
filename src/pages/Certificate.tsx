@@ -33,8 +33,6 @@ import guviPythonTamilImg from "../assets/guvi_python_tamil.png";
 import guviAIForIndiaImg from "../assets/guvi_ai_for_india.png";
 import fivesqlAdvancedImg from "../assets/fivesql_quiz_advanced.png";
 
-import fivesqlAdvancedImg from "../assets/fivesql_quiz_advanced.png";
-
 import { motion } from "framer-motion";
 
 interface CertificateItem {
@@ -92,15 +90,9 @@ function Certificate() {
       certificates: [
         {
           name: "Essentials of MS Excel - Formulas and Functions",
-<<<<<<< HEAD
           img: uniathenaExcelImg,
           pdf: uniathenaExcelImg,
           credentialId: "2051-9132-7379",
-=======
-          img: fivesqlAdvancedImg,
-          pdf: fivesqlAdvancedImg,
-          credentialId: "SQL-QUIZ-466413",
->>>>>>> 5d7bc29e6f9f106b1a17ed09b31665d076b7a0ee
           issued: "August 2026",
           provider: "UniAthena",
         },
@@ -295,8 +287,8 @@ function Certificate() {
                 key={type}
                 onClick={() => setSelectedType(type)}
                 className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer ${isSelected
-                    ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                    : "bg-slate-900/60 text-slate-300 hover:bg-slate-900 border border-white/5 hover:border-cyan-500/30"
+                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
+                  : "bg-slate-900/60 text-slate-300 hover:bg-slate-900 border border-white/5 hover:border-cyan-500/30"
                   }`}
               >
                 {type}
