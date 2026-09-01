@@ -205,4 +205,17 @@ export const feedbackData = [{
     "Aron Sir is one of the best trainers I have learned from. He explains every concept very clearly and patiently, even when we ask the same doubts multiple times. His teaching style is simple, practical, and easy to understand. He always motivates us to learn, practice, and improve our skills. He is very friendly with students and always ready to clear our doubts. I learned Full Stack Java from him, and his guidance helped me improve my technical knowledge and confidence. I am really thankful for his valuable guidance, support, and motivation.",
   useForDashboard: true,
 },
+{
+  id: 17,
+  timestamp: "2026-09-01T22:26:45",
+  email: "",
+  name: "G. Sangeetha",
+  degree: "BCA",
+  designation: "Student",
+  course: "Python",
+  rating: 5,
+  review:
+    "Aaron Sir is a very supportive and knowledgeable Python instructor. He explains every concept in a simple and practical way, making it easy to understand and apply. His classes are interactive, and he encourages students to ask questions and practice coding regularly. I really appreciate his patience, clear explanations, and dedication towards teaching. Learning Python with Aaron Sir has been a great experience, and I would highly recommend him as a trainer.",
+  useForDashboard: true,
+},
 ];
