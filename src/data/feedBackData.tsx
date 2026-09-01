@@ -209,9 +209,9 @@ export const feedbackData = [{
   id: 17,
   timestamp: "2026-09-01T22:26:45",
   email: "",
-  name: "G. Sangeetha",
+  name: "Sangeetha.G",
   degree: "BCA",
-  designation: "Student",
+  designation: "College Student",
   course: "Python",
   rating: 5,
   review:
