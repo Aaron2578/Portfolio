@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { feedbackData } from "../data/feedBackData";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import SpotlightCard from "./ReactBits/SpotlightCard";
+import CountUp from "./ReactBits/CountUp";
 import { X, Calendar, BookOpen, Users, Award } from "lucide-react";
 
 // Asset Imports
@@ -15,107 +16,115 @@ type ModalType = "students" | "rating" | "orientation" | "interview" | "tot" | n
 
 function Card() {
   const [activeModal, setActiveModal] = useState<ModalType>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isContainerInView = useInView(containerRef, { once: true, amount: 0.2 });
 
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveModal(null);
+      }
+    };
     if (activeModal) {
+      window.addEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
     };
   }, [activeModal]);
 
-  const dashboardData = feedbackData.filter(f => f.useForDashboard);
+  const studentsMentored = feedbackData.filter(
+    (item) => item.useForDashboard === true
+  ).length;
 
-  const studentsMentored = dashboardData.length;
+  const totalRating = feedbackData.reduce((acc, item) => {
+    return acc + Number(item.rating);
+  }, 0);
 
-  const avg =
-    dashboardData.length > 0
-      ? dashboardData.reduce((sum, f) => sum + f.rating, 0) /
-      dashboardData.length
-      : 0;
-
-  const avgRating = Number.isInteger(avg) ? avg.toString() : avg.toFixed(1);
+  const avgNumber = feedbackData.length > 0 ? totalRating / feedbackData.length : 0;
+  const hasDecimal = avgNumber % 1 !== 0;
+  const avg = hasDecimal ? avgNumber.toFixed(1) : avgNumber.toFixed(0);
 
   const orientationConducted = 1;
   const technicalInterview = 1;
   const totSessions = 1;
 
-  // Configuration for each stats card modal detail
   const modalData = {
     students: {
-      tag: "🎓 Mentorship Impact",
-      title: "Students Mentored",
-      subtitle: "Empowering next-generation developers through direct mentorship.",
+      title: "Students Mentored & Trained",
+      subtitle: "Hands-on Technical Training & Career Guidance",
       image: studentsMentoredImg,
-      description: `I have had the privilege of mentoring and training ${studentsMentored}+ students and professionals in full-stack web technologies, design systems, and core programming languages. My focus is on providing high-quality, practical learning experiences that prepare individuals for careers in software development and UI/UX design.`,
-      colorClass: "from-green-400 to-emerald-300",
-      borderClass: "border-green-500/20 text-green-400 bg-green-500/10",
-      iconColor: "text-green-400",
+      metricValue: `${studentsMentored}+`,
+      metricLabel: "Active Learners Guided",
+      tagText: "Academic Impact",
+      borderClass: "border-emerald-500/20 text-emerald-400 bg-emerald-500/10",
+      iconColor: "text-emerald-400",
       bullets: [
-        { icon: Users, label: "Total Reach", value: "Over 50+ students mentored across diverse coding Bootcamps." },
-        { icon: BookOpen, label: "Core Stacks", value: "HTML, CSS, JavaScript, React, Tailwind CSS, Python, and Java ecosystems." },
-        { icon: Calendar, label: "Practical Projects", value: "Guided students in building fully responsive web applications and interactive prototypes." },
-        { icon: Award, label: "Job Placement", value: "Helped learners build industry-relevant portfolios and prepare for interviews." }
+        { icon: Users, label: "Program Scope", value: "Trained and mentored 17+ college students in modern web development frameworks and production best practices." },
+        { icon: BookOpen, label: "Core Curriculum", value: "In-depth modules covering React.js, Tailwind CSS, TypeScript, REST APIs, Git workflows, and collaborative project architecture." },
+        { icon: Calendar, label: "Interactive Format", value: "Daily live coding demonstrations, interactive sprint reviews, and personalized code evaluation sessions." },
+        { icon: Award, label: "Measurable Impact", value: "100% of participants built and deployed capstone portfolio projects with modern CI/CD pipelines." }
       ]
     },
     rating: {
-      tag: "⭐ Excellence & Feedback",
-      title: "Average Rating",
-      subtitle: "Real verified ratings and testimonials from trainee reviews.",
+      title: "Student Satisfaction & Feedback",
+      subtitle: "Comprehensive Learner Reviews & Evaluation",
       image: averageRatingImg,
-      description: `Maintaining a strong average rating of ${avgRating} / 5.0. This score represents verified feedback and high satisfaction ratings from students and professionals attending my classes, orientation programs, and coding bootcamps.`,
-      colorClass: "from-purple-400 to-fuchsia-300",
+      metricValue: `${avg} / 5.0 ★`,
+      metricLabel: "Average Feedback Score",
+      tagText: "Quality Excellence",
       borderClass: "border-purple-500/20 text-purple-400 bg-purple-500/10",
       iconColor: "text-purple-400",
       bullets: [
-        { icon: Users, label: "Verified Reviews", value: "Drawn from course feedback surveys and training evaluations." },
-        { icon: BookOpen, label: "Key Strengths", value: "Clear conceptual explanations, real-world examples, and patience in answering queries." },
-        { icon: Calendar, label: "Learning Pace", value: "Flexible teaching speed customized to both beginners and advanced students." },
-        { icon: Award, label: "Professionalism", value: "Consistent 5-star ratings across Python, Java, Power BI, and design courses." }
+        { icon: Award, label: "Unanimous Excellence", value: `Maintained a pristine ${avg} out of 5.0 rating across all anonymous student evaluations and surveys.` },
+        { icon: BookOpen, label: "Teaching Clarity", value: "Consistently recognized for breaking down complex architectural abstractions into intuitive, actionable milestones." },
+        { icon: Users, label: "Student Engagement", value: "High engagement with active doubt-clearing channels and 1-on-1 personalized debugging assistance." },
+        { icon: Award, label: "Recommendation Rate", value: "98%+ of surveyed students explicitly recommended the training program to prospective cohort peers." }
       ]
     },
     orientation: {
-      tag: "🎤 Orientation Programs",
-      title: "Orientation Sessions",
-      subtitle: "Conducting technical workshops and career alignment programs.",
+      title: "Academic Induction & Orientation Program",
+      subtitle: "Full-Stack Development Roadmap & Industry Readiness",
       image: orientationImg,
-      description: "Conducted technical orientation programs aimed at aligning beginners with software engineering roadmaps, UI/UX opportunities, and effective learning methodologies. These workshops help clear academic confusion and design optimal paths for tech domain success.",
-      colorClass: "from-red-400 to-rose-300",
-      borderClass: "border-red-500/20 text-red-400 bg-red-500/10",
-      iconColor: "text-red-400",
+      metricValue: `${orientationConducted} Cohort`,
+      metricLabel: "Institution-wide Keynote",
+      tagText: "Industry Induction",
+      borderClass: "border-rose-500/20 text-rose-400 bg-rose-500/10",
+      iconColor: "text-rose-400",
       bullets: [
-        { icon: Users, label: "Reach", value: "Oriented batch groups on transition strategies from college to professional environments." },
-        { icon: BookOpen, label: "Content", value: "Industry expectations, resume building basics, coding roadmap structures, and tool walkthroughs." },
-        { icon: Calendar, label: "Format", value: "Interactive Q&A rounds, live product breakdowns, and portfolio showcases." },
-        { icon: Award, label: "Goal", value: "Inspire students to learn by building, removing entry barriers to software design." }
+        { icon: Calendar, label: "Program Purpose", value: "Conducted an intensive launchpad session outlining the modern software engineering landscape and career trajectories." },
+        { icon: Users, label: "Audience Reach", value: "Addressed incoming batch students, setting clear expectations for technical rigor and open-source contributions." },
+        { icon: BookOpen, label: "Roadmap Shared", value: "Outlined step-by-step masteries for JavaScript engines, frontend component architecture, and server-side paradigms." },
+        { icon: Award, label: "Key Outcome", value: "Students kickstarted their GitHub journey and formed study circles for peer-to-peer programming." }
       ]
     },
     interview: {
-      tag: "📝 Technical Interviewing",
-      title: "Mock Technical Interviews",
-      subtitle: "Helping candidates build confidence and clear real interviews.",
+      title: "Technical Mock Interviews & Assessments",
+      subtitle: "Industry-standard Readiness & Code Evaluation",
       image: technicalInterviewImg,
-      description: "Conducted mock technical interviews and conceptual evaluations for aspiring developers. By simulating real-world tech interview rounds, I help students identify their weak spots, improve their problem-solving communication, and structure their coding answers.",
-      colorClass: "from-blue-400 to-sky-300",
-      borderClass: "border-blue-500/20 text-blue-400 bg-blue-500/10",
-      iconColor: "text-blue-400",
+      metricValue: `${technicalInterview} Edition`,
+      metricLabel: "Simulated Hiring Round",
+      tagText: "Career Readiness",
+      borderClass: "border-sky-500/20 text-sky-400 bg-sky-500/10",
+      iconColor: "text-sky-400",
       bullets: [
-        { icon: Users, label: "Assessment", value: "Detailed feedback reports on coding syntax, structure, complexity analysis, and soft skills." },
-        { icon: BookOpen, label: "Domains Covered", value: "Data structures, frontend algorithms, object-oriented concepts, and CSS layout challenges." },
-        { icon: Calendar, label: "Simulations", value: "Time-bound coding sprints followed by feedback and correction." },
-        { icon: Award, label: "Result", value: "Significant improvement in candidate confidence and technical communication." }
+        { icon: BookOpen, label: "Structure", value: "Designed and executed real-world technical assessment rounds modeled after top-tier software company interviews." },
+        { icon: Users, label: "Format", value: "Live whiteboard problem-solving, algorithmic reasoning challenges, and deep-dive resume project defensibility." },
+        { icon: Calendar, label: "Constructive Feedback", value: "Delivered granular rubric evaluations covering code modularity, edge case handling, and communication clarity." },
+        { icon: Award, label: "Key Outcome", value: "Significantly reduced student interview anxiety and improved problem articulation under time constraints." }
       ]
     },
     tot: {
-      tag: "🎓 Trainer Training",
-      title: "Training of Trainers (TOT) Session",
-      subtitle: "Aligning educators and financial experts with AI-driven Excel frameworks.",
+      title: "Training of Trainers (TOT) Workshop",
+      subtitle: "AI, Predictive Modeling & Advanced Excel for Faculty",
       image: totSessionImg,
-      description: `As a Technical Trainer at SA 3D SOLUTIONS, I conducted a high-impact Training of Trainers (TOT) program focusing on integrating AI tools within Microsoft Excel for advanced financial analysis. The training was designed to empower instructors, developers, and finance professionals with modern AI-assisted analytical workflows.`,
-      colorClass: "from-orange-400 to-amber-300",
+      metricValue: `${totSessions} Session`,
+      metricLabel: "Faculty Empowerment Program",
+      tagText: "Executive Training",
       borderClass: "border-orange-500/20 text-orange-400 bg-orange-500/10",
       iconColor: "text-orange-400",
       bullets: [
@@ -129,15 +138,16 @@ function Card() {
 
   return (
     <motion.div
+      ref={containerRef}
       className="py-10 sm:pt-0"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={{
         hidden: {},
         visible: {
           transition: {
-            staggerChildren: 0.2
+            staggerChildren: 0.15
           }
         }
       }}
@@ -152,7 +162,12 @@ function Card() {
         >
           <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
             <p className="text-4xl font-bold text-green-500">
-              {studentsMentored}+
+              <CountUp
+                to={studentsMentored}
+                suffix="+"
+                duration={1.8}
+                start={isContainerInView}
+              />
             </p>
             <h2 className="text-md font-semibold pt-2 text-slate-300">🎓 Students Mentored</h2>
           </SpotlightCard>
@@ -166,7 +181,13 @@ function Card() {
         >
           <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
             <p className="text-4xl font-bold text-purple-500">
-              {avgRating} <span className="text-yellow-400">★</span>
+              <CountUp
+                to={avgNumber}
+                decimals={hasDecimal ? 1 : 0}
+                duration={1.8}
+                start={isContainerInView}
+              />{" "}
+              <span className="text-yellow-400">★</span>
             </p>
             <h2 className="text-md font-semibold pt-2 text-slate-300">⭐ Average Rating</h2>
           </SpotlightCard>
@@ -180,7 +201,11 @@ function Card() {
         >
           <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
             <p className="text-4xl font-bold text-red-500">
-              {orientationConducted}
+              <CountUp
+                to={orientationConducted}
+                duration={1.8}
+                start={isContainerInView}
+              />
             </p>
             <h2 className="text-md font-semibold pt-2 text-slate-300">🎤 Orientation Program</h2>
           </SpotlightCard>
@@ -194,7 +219,11 @@ function Card() {
         >
           <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
             <p className="text-4xl font-bold text-blue-500">
-              {technicalInterview}
+              <CountUp
+                to={technicalInterview}
+                duration={1.8}
+                start={isContainerInView}
+              />
             </p>
             <h2 className="text-md font-semibold pt-2 text-slate-300">📝 Technical Interview</h2>
           </SpotlightCard>
@@ -208,7 +237,11 @@ function Card() {
         >
           <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
             <p className="text-4xl font-bold text-orange-500">
-              {totSessions}
+              <CountUp
+                to={totSessions}
+                duration={1.8}
+                start={isContainerInView}
+              />
             </p>
             <h2 className="text-md font-semibold pt-2 text-slate-300">👥 TOT Sessions</h2>
           </SpotlightCard>
@@ -226,76 +259,98 @@ function Card() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveModal(null)}
-              className="absolute inset-0 bg-slate-950/80 backdrop-blur-md"
+              className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
             />
 
-            {/* Modal Card Content */}
+            {/* Modal Dialog Content */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-2xl bg-slate-900 border border-white/10 rounded-3xl shadow-2xl overflow-hidden text-left flex flex-col max-h-[85vh] z-10"
+              transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
+              className="relative w-full max-w-2xl bg-slate-900 border border-white/15 rounded-3xl overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col"
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setActiveModal(null)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white p-2 rounded-full bg-slate-950/50 hover:bg-slate-950 transition-colors z-20 cursor-pointer"
-                aria-label="Close modal"
-              >
-                <X size={20} />
-              </button>
+              {/* Modal Header & Hero Image */}
+              <div className="relative h-48 sm:h-64 w-full overflow-hidden bg-slate-950 flex-shrink-0">
+                <img
+                  src={modalData[activeModal].image}
+                  alt={modalData[activeModal].title}
+                  className="w-full h-full object-cover object-center brightness-95 filter hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                
+                {/* Close Button */}
+                <button
+                  onClick={() => setActiveModal(null)}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-slate-900/80 border border-white/20 text-white hover:bg-white/20 hover:scale-110 transition-all duration-200"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
 
-              {/* Modal Body (Scrollable) */}
-              <div className="overflow-y-auto p-6 sm:p-8 flex flex-col gap-6">
-                {/* Header */}
-                <div>
-                  <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest inline-flex items-center gap-1.5 mb-2 border ${modalData[activeModal].borderClass}`}>
-                    {modalData[activeModal].tag}
+                {/* Badge Tag */}
+                <div className="absolute top-4 left-4">
+                  <span className={`px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider border backdrop-blur-md ${modalData[activeModal].borderClass}`}>
+                    {modalData[activeModal].tagText}
                   </span>
-                  <h3 className={`text-2xl sm:text-3xl font-extrabold text-white montserrat bg-gradient-to-r ${modalData[activeModal].colorClass} bg-clip-text text-transparent`}>
+                </div>
+
+                {/* Bottom Header Text */}
+                <div className="absolute bottom-3 left-6 right-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-md">
                     {modalData[activeModal].title}
                   </h3>
-                  <p className="text-slate-400 text-xs sm:text-sm font-medium mt-1">
+                  <p className="text-xs sm:text-sm text-slate-300 drop-shadow">
                     {modalData[activeModal].subtitle}
                   </p>
                 </div>
+              </div>
 
-                {/* Cover Image */}
-                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/5 bg-slate-950 shadow-inner group">
-                  <img
-                    src={modalData[activeModal].image}
-                    alt={modalData[activeModal].title}
-                    className="w-full h-full object-cover group-hover:scale-102 transition duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-4">
-                    <p className="text-white text-xs font-medium">
-                      📸 Visual overview of {modalData[activeModal].title}
-                    </p>
+              {/* Scrollable Content Body */}
+              <div className="p-6 overflow-y-auto space-y-6">
+                {/* Key Metric Banner */}
+                <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-800/60 border border-white/10">
+                  <div>
+                    <span className="text-xs text-slate-400 font-medium uppercase tracking-wider">Highlight Metric</span>
+                    <h4 className="text-sm font-semibold text-slate-200">{modalData[activeModal].metricLabel}</h4>
+                  </div>
+                  <div className={`text-2xl sm:text-3xl font-extrabold ${modalData[activeModal].iconColor}`}>
+                    {modalData[activeModal].metricValue}
                   </div>
                 </div>
 
-                {/* Details / Description */}
-                <div className="flex flex-col gap-4 text-slate-300 text-sm leading-relaxed font-sans">
-                  <p>
-                    {modalData[activeModal].description}
-                  </p>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                    {modalData[activeModal].bullets.map((bullet, idx) => {
-                      const Icon = bullet.icon;
+                {/* Detailed Highlights */}
+                <div>
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">
+                    Overview & Key Takeaways
+                  </h4>
+                  <div className="grid gap-3">
+                    {modalData[activeModal].bullets.map((item, idx) => {
+                      const IconComponent = item.icon;
                       return (
-                        <div key={idx} className="flex gap-3 items-start bg-slate-950/55 p-3.5 rounded-xl border border-white/5 animate-fadeIn">
-                          <Icon className={`${modalData[activeModal].iconColor} flex-shrink-0 mt-0.5`} size={18} />
+                        <div key={idx} className="flex items-start gap-3.5 p-3 rounded-xl bg-slate-800/30 border border-white/5 hover:border-white/10 transition-colors">
+                          <div className={`p-2 rounded-lg bg-slate-800 flex-shrink-0 mt-0.5 ${modalData[activeModal].iconColor}`}>
+                            <IconComponent className="w-4 h-4" />
+                          </div>
                           <div>
-                            <h4 className="text-white font-bold text-xs uppercase tracking-wider font-mono">{bullet.label}</h4>
-                            <p className="text-slate-400 text-xs mt-0.5">{bullet.value}</p>
+                            <p className="text-xs font-bold text-slate-300">{item.label}</p>
+                            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mt-0.5">{item.value}</p>
                           </div>
                         </div>
                       );
                     })}
                   </div>
                 </div>
+              </div>
+
+              {/* Footer */}
+              <div className="p-4 bg-slate-950/60 border-t border-white/10 flex justify-end">
+                <button
+                  onClick={() => setActiveModal(null)}
+                  className="px-5 py-2 text-sm font-medium rounded-xl bg-white/10 hover:bg-white/15 text-white transition-colors"
+                >
+                  Close
+                </button>
               </div>
             </motion.div>
           </div>
