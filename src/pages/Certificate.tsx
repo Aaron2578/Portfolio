@@ -32,6 +32,8 @@ import besantTestingImg from "../assets/besant_software_testing.png";
 import guviPythonTamilImg from "../assets/guvi_python_tamil.png";
 import guviAIForIndiaImg from "../assets/guvi_ai_for_india.png";
 import fivesqlAdvancedImg from "../assets/fivesql_quiz_advanced.png";
+import simplilearnAILiteracyImg from "../assets/simplilearn_generative_ai_literacy.png";
+import simplilearnAILiteracyPDF from "../documents/certificate ai quiz.pdf";
 
 import { motion } from "framer-motion";
 
@@ -54,6 +56,14 @@ function Certificate() {
     {
       category: "🤖 Generative AI & AI Certifications",
       certificates: [
+        {
+          name: "SkillQuest - Generative AI Literacy",
+          img: simplilearnAILiteracyImg,
+          pdf: simplilearnAILiteracyPDF,
+          credentialId: "45929433",
+          issued: "September 12, 2026",
+          provider: "Simplilearn SkillUP",
+        },
         {
           name: "Databricks Accredited Generative AI Fundamentals",
           img: databricksGenAIImg,
