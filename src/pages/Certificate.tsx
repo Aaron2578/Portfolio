@@ -32,7 +32,7 @@ import besantTestingImg from "../assets/besant_software_testing.png";
 import guviPythonTamilImg from "../assets/guvi_python_tamil.png";
 import guviAIForIndiaImg from "../assets/guvi_ai_for_india.png";
 import fivesqlAdvancedImg from "../assets/fivesql_quiz_advanced.png";
-import simplilearnAILiteracyImg from "../assets/simplilearn_generative_ai_literacy.png";
+import simplilearnAILiteracyImg from "../assets/simplilearn_data_science.png";
 import simplilearnAILiteracyPDF from "../documents/certificate ai quiz.pdf";
 
 import { motion } from "framer-motion";
