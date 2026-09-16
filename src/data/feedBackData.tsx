@@ -224,7 +224,7 @@ export const feedbackData = [{
   email: "",
   name: "Jovitamary A",
   degree: "BE.ECE",
-  designation: "Graduate",
+  designation: "Job Seeker",
   course: "FullStack Java",
   rating: 5,
   review:
