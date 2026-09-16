@@ -218,4 +218,17 @@ export const feedbackData = [{
     "Aaron Sir is a very supportive and knowledgeable Python instructor. He explains every concept in a simple and practical way, making it easy to understand and apply. His classes are interactive, and he encourages students to ask questions and practice coding regularly. I really appreciate his patience, clear explanations, and dedication towards teaching. Learning Python with Aaron Sir has been a great experience, and I would highly recommend him as a trainer.",
   useForDashboard: true,
 },
+{
+  id: 18,
+  timestamp: "2026-09-16T21:35:56",
+  email: "",
+  name: "Jovitamary A",
+  degree: "BE.ECE",
+  designation: "Graduate",
+  course: "FullStack Java",
+  rating: 5,
+  review:
+    "The class was very informative and easy to understand. Sir explained each concept clearly with practical examples and patiently cleared all our doubts. Thank you for your guidance and support sir.",
+  useForDashboard: true,
+},
 ];
