@@ -231,4 +231,17 @@ export const feedbackData = [{
     "The class was very informative and easy to understand. Sir explained each concept clearly with practical examples and patiently cleared all our doubts. Thank you for your guidance and support sir.",
   useForDashboard: true,
 },
+{
+    id: 19,
+    timestamp: "2026-09-23T17:41:40",
+    email: "sharanvikash1412@gmail.com",
+    name: "Vikash Sharan",
+    degree: "MBA",
+    designation: "Job seeker",
+    course: "Advanced Excel, Power BI, MySQL",
+    rating: 5,
+    review:
+      "I recently completed the Advanced Excel, Power BI, and SQL course at Techmax, and it was a great learning experience. A special thanks to Aron, the trainer, for explaining the concepts clearly and patiently. The sessions were practical and easy to understand, especially the hands-on exercises in Excel, Power BI, and SQL. The way Aron explained the concepts with real-world examples made it easier to understand and apply them. Overall, I’m happy with the training and would recommend Techmax to anyone looking to improve their skills in Advanced Excel, Power BI, and SQL.",
+    useForDashboard: true,
+  },
 ];
