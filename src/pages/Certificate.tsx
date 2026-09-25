@@ -35,6 +35,11 @@ import fivesqlAdvancedImg from "../assets/fivesql_quiz_advanced.png";
 import simplilearnAILiteracyImg from "../assets/simplilearn_data_science.png";
 import simplilearnAILiteracyPDF from "../documents/certificate ai quiz.pdf";
 
+import anthropicAIFluencyImg from "../assets/anthropic_ai_fluency.png";
+import anthropicAIFluencyPDF from "../documents/antopic ai certificate.pdf";
+
+import oracleJavaImg from "../assets/oracle java certificate.jpg";
+
 import { motion } from "framer-motion";
 
 interface CertificateItem {
@@ -56,6 +61,13 @@ function Certificate() {
     {
       category: "🤖 Generative AI & AI Certifications",
       certificates: [
+        {
+          name: "AI Fluency: Framework & Foundations",
+          img: anthropicAIFluencyImg,
+          pdf: anthropicAIFluencyPDF,
+          issued: "September 2026",
+          provider: "Anthropic",
+        },
         {
           name: "SkillQuest - Generative AI Literacy",
           img: simplilearnAILiteracyImg,
@@ -153,6 +165,12 @@ function Certificate() {
     {
       category: "💻 Development Certifications",
       certificates: [
+        {
+          name: "Oracle Java Foundations",
+          img: oracleJavaImg,
+          pdf: oracleJavaImg,
+          provider: "Oracle",
+        },
         {
           name: "Python Programming Course",
           img: guviPythonTamilImg,
