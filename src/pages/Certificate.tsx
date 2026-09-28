@@ -40,6 +40,8 @@ import anthropicAIFluencyPDF from "../documents/antopic ai certificate.pdf";
 
 import oracleJavaImg from "../assets/oracle java certificate.jpg";
 
+import dataAnalystAIImg from "../assets/Data Analytics + AI.jpg";
+
 import { motion } from "framer-motion";
 
 interface CertificateItem {
@@ -110,6 +112,14 @@ function Certificate() {
     {
       category: "📊 Data & Analytics Certifications",
       certificates: [
+        {
+          name: "Data Analyst + AI Course",
+          img: dataAnalystAIImg,
+          pdf: dataAnalystAIImg,
+          credentialId: "CT-2026-0075",
+          issued: "September 15, 2026",
+          provider: "CodeTalon",
+        },
         {
           name: "Essentials of MS Excel - Formulas and Functions",
           img: uniathenaExcelImg,
