@@ -7,4 +7,6 @@ export interface Feedback {
   rating: number;
   review: string;
   timestamp?: string; // optional if your JSON has timestamps
+  email?: string;
+  useForDashboard?: boolean;
 }

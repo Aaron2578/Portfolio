@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { feedbackData } from "../data/feedBackData";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import SpotlightCard from "./ReactBits/SpotlightCard";
@@ -16,8 +17,13 @@ type ModalType = "students" | "rating" | "orientation" | "interview" | "tot" | n
 
 function Card() {
   const [activeModal, setActiveModal] = useState<ModalType>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const isContainerInView = useInView(containerRef, { once: true, amount: 0.2 });
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -51,7 +57,7 @@ function Card() {
 
   const orientationConducted = 1;
   const technicalInterview = 1;
-  const totSessions = 1;
+  const totSessions = 3;
 
   const modalData = {
     students: {
@@ -137,226 +143,233 @@ function Card() {
   };
 
   return (
-    <motion.div
-      ref={containerRef}
-      className="py-10 sm:pt-0"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={{
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: 0.15
+    <>
+      <motion.div
+        ref={containerRef}
+        className="py-10 sm:pt-0"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.15
+            }
           }
-        }
-      }}
-    >
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-0">
+        }}
+      >
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-0">
 
-        {/* Students Mentored */}
-        <motion.div
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          className="cursor-pointer"
-          onClick={() => setActiveModal("students")}
-        >
-          <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
-            <p className="text-4xl font-bold text-green-500">
-              <CountUp
-                to={studentsMentored}
-                suffix="+"
-                duration={1.8}
-                start={isContainerInView}
-              />
-            </p>
-            <h2 className="text-md font-semibold pt-2 text-slate-300">🎓 Students Mentored</h2>
-          </SpotlightCard>
-        </motion.div>
-
-        {/* Average Rating */}
-        <motion.div
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          className="cursor-pointer"
-          onClick={() => setActiveModal("rating")}
-        >
-          <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
-            <p className="text-4xl font-bold text-purple-500">
-              <CountUp
-                to={avgNumber}
-                decimals={hasDecimal ? 1 : 0}
-                duration={1.8}
-                start={isContainerInView}
-              />{" "}
-              <span className="text-yellow-400">★</span>
-            </p>
-            <h2 className="text-md font-semibold pt-2 text-slate-300">⭐ Average Rating</h2>
-          </SpotlightCard>
-        </motion.div>
-
-        {/* Orientation program */}
-        <motion.div
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          className="cursor-pointer"
-          onClick={() => setActiveModal("orientation")}
-        >
-          <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
-            <p className="text-4xl font-bold text-red-500">
-              <CountUp
-                to={orientationConducted}
-                duration={1.8}
-                start={isContainerInView}
-              />
-            </p>
-            <h2 className="text-md font-semibold pt-2 text-slate-300">🎤 Orientation Program</h2>
-          </SpotlightCard>
-        </motion.div>
-
-        {/* Technical Interview */}
-        <motion.div
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          className="cursor-pointer"
-          onClick={() => setActiveModal("interview")}
-        >
-          <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
-            <p className="text-4xl font-bold text-blue-500">
-              <CountUp
-                to={technicalInterview}
-                duration={1.8}
-                start={isContainerInView}
-              />
-            </p>
-            <h2 className="text-md font-semibold pt-2 text-slate-300">📝 Technical Interview</h2>
-          </SpotlightCard>
-        </motion.div>
-
-        {/* TOT Sessions */}
-        <motion.div
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-          className="cursor-pointer"
-          onClick={() => setActiveModal("tot")}
-        >
-          <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
-            <p className="text-4xl font-bold text-orange-500">
-              <CountUp
-                to={totSessions}
-                duration={1.8}
-                start={isContainerInView}
-              />
-            </p>
-            <h2 className="text-md font-semibold pt-2 text-slate-300">👥 TOT Sessions</h2>
-          </SpotlightCard>
-        </motion.div>
-
-      </div>
-
-      {/* Detail Modal Overlay */}
-      <AnimatePresence>
-        {activeModal && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setActiveModal(null)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
-            />
-
-            {/* Modal Dialog Content */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
-              className="relative w-full max-w-2xl bg-slate-900 border border-white/15 rounded-3xl overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col"
-            >
-              {/* Modal Header & Hero Image */}
-              <div className="relative h-48 sm:h-64 w-full overflow-hidden bg-slate-950 flex-shrink-0">
-                <img
-                  src={modalData[activeModal].image}
-                  alt={modalData[activeModal].title}
-                  className="w-full h-full object-cover object-center brightness-95 filter hover:scale-105 transition-transform duration-700"
+          {/* Students Mentored */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            className="cursor-pointer"
+            onClick={() => setActiveModal("students")}
+          >
+            <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
+              <p className="text-4xl font-bold text-green-500">
+                <CountUp
+                  to={studentsMentored}
+                  suffix="+"
+                  duration={1.8}
+                  start={isContainerInView}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
-                
-                {/* Close Button */}
-                <button
+              </p>
+              <h2 className="text-md font-semibold pt-2 text-slate-300">🎓 Students Mentored</h2>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* Average Rating */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            className="cursor-pointer"
+            onClick={() => setActiveModal("rating")}
+          >
+            <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
+              <p className="text-4xl font-bold text-purple-500">
+                <CountUp
+                  to={avgNumber}
+                  decimals={hasDecimal ? 1 : 0}
+                  duration={1.8}
+                  start={isContainerInView}
+                />{" "}
+                <span className="text-yellow-400">★</span>
+              </p>
+              <h2 className="text-md font-semibold pt-2 text-slate-300">⭐ Average Rating</h2>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* Orientation program */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            className="cursor-pointer"
+            onClick={() => setActiveModal("orientation")}
+          >
+            <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
+              <p className="text-4xl font-bold text-red-500">
+                <CountUp
+                  to={orientationConducted}
+                  duration={1.8}
+                  start={isContainerInView}
+                />
+              </p>
+              <h2 className="text-md font-semibold pt-2 text-slate-300">🎤 Orientation Program</h2>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* Technical Interview */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            className="cursor-pointer"
+            onClick={() => setActiveModal("interview")}
+          >
+            <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
+              <p className="text-4xl font-bold text-blue-500">
+                <CountUp
+                  to={technicalInterview}
+                  duration={1.8}
+                  start={isContainerInView}
+                />
+              </p>
+              <h2 className="text-md font-semibold pt-2 text-slate-300">📝 Technical Interview</h2>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* TOT Sessions */}
+          <motion.div
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            className="cursor-pointer"
+            onClick={() => setActiveModal("tot")}
+          >
+            <SpotlightCard className="bg-slate-900 border border-white/10 text-white px-3 py-6 rounded-2xl shadow-md text-center hover:shadow-lg hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 h-full" spotlightColor="rgba(255, 255, 255, 0.08)">
+              <p className="text-4xl font-bold text-orange-500">
+                <CountUp
+                  to={totSessions}
+                  duration={1.8}
+                  start={isContainerInView}
+                />
+              </p>
+              <h2 className="text-md font-semibold pt-2 text-slate-300">👥 TOT Sessions</h2>
+            </SpotlightCard>
+          </motion.div>
+
+        </div>
+      </motion.div>
+
+      {/* Detail Modal Overlay rendered in Portal */}
+      {isMounted &&
+        createPortal(
+          <AnimatePresence>
+            {activeModal && (
+              <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-hidden">
+                {/* Backdrop */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   onClick={() => setActiveModal(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-slate-900/80 border border-white/20 text-white hover:bg-white/20 hover:scale-110 transition-all duration-200"
-                  aria-label="Close modal"
+                  className="fixed inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
+                />
+
+                {/* Modal Dialog Content */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95, y: 16 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 16 }}
+                  transition={{ type: "spring", duration: 0.45, bounce: 0.12 }}
+                  className="relative w-full max-w-xl sm:max-w-2xl bg-slate-900 border border-white/15 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl z-10 max-h-[88dvh] sm:max-h-[90vh] flex flex-col my-auto"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <X className="w-5 h-5" />
-                </button>
+                  {/* Modal Header & Hero Image */}
+                  <div className="relative h-40 sm:h-56 md:h-64 w-full overflow-hidden bg-slate-950 flex-shrink-0">
+                    <img
+                      src={modalData[activeModal].image}
+                      alt={modalData[activeModal].title}
+                      className="w-full h-full object-cover object-center brightness-90 filter hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-black/40" />
 
-                {/* Badge Tag */}
-                <div className="absolute top-4 left-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider border backdrop-blur-md ${modalData[activeModal].borderClass}`}>
-                    {modalData[activeModal].tagText}
-                  </span>
-                </div>
+                    {/* Close Button */}
+                    <button
+                      onClick={() => setActiveModal(null)}
+                      className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full bg-slate-900/80 hover:bg-slate-800 border border-white/20 text-white active:scale-95 transition-all duration-200 z-20 cursor-pointer shadow-lg"
+                      aria-label="Close modal"
+                    >
+                      <X className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </button>
 
-                {/* Bottom Header Text */}
-                <div className="absolute bottom-3 left-6 right-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-md">
-                    {modalData[activeModal].title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 drop-shadow">
-                    {modalData[activeModal].subtitle}
-                  </p>
-                </div>
-              </div>
+                    {/* Badge Tag */}
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
+                      <span className={`px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider border backdrop-blur-md shadow-sm ${modalData[activeModal].borderClass}`}>
+                        {modalData[activeModal].tagText}
+                      </span>
+                    </div>
 
-              {/* Scrollable Content Body */}
-              <div className="p-6 overflow-y-auto space-y-6">
-                {/* Key Metric Banner */}
-                <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-800/60 border border-white/10">
-                  <div>
-                    <span className="text-xs text-slate-400 font-medium uppercase tracking-wider">Highlight Metric</span>
-                    <h4 className="text-sm font-semibold text-slate-200">{modalData[activeModal].metricLabel}</h4>
+                    {/* Bottom Header Text */}
+                    <div className="absolute bottom-2.5 sm:bottom-4 left-3.5 right-3.5 sm:left-6 sm:right-6 z-10">
+                      <h3 className="text-lg sm:text-2xl font-bold text-white drop-shadow-md leading-tight sm:leading-normal">
+                        {modalData[activeModal].title}
+                      </h3>
+                      <p className="text-[11px] sm:text-sm text-slate-300 drop-shadow line-clamp-2 mt-0.5 sm:mt-1">
+                        {modalData[activeModal].subtitle}
+                      </p>
+                    </div>
                   </div>
-                  <div className={`text-2xl sm:text-3xl font-extrabold ${modalData[activeModal].iconColor}`}>
-                    {modalData[activeModal].metricValue}
-                  </div>
-                </div>
 
-                {/* Detailed Highlights */}
-                <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-3">
-                    Overview & Key Takeaways
-                  </h4>
-                  <div className="grid gap-3">
-                    {modalData[activeModal].bullets.map((item, idx) => {
-                      const IconComponent = item.icon;
-                      return (
-                        <div key={idx} className="flex items-start gap-3.5 p-3 rounded-xl bg-slate-800/30 border border-white/5 hover:border-white/10 transition-colors">
-                          <div className={`p-2 rounded-lg bg-slate-800 flex-shrink-0 mt-0.5 ${modalData[activeModal].iconColor}`}>
-                            <IconComponent className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <p className="text-xs font-bold text-slate-300">{item.label}</p>
-                            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mt-0.5">{item.value}</p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
+                  {/* Scrollable Content Body */}
+                  <div className="p-3.5 sm:p-6 overflow-y-auto space-y-3.5 sm:space-y-6 flex-1 overscroll-contain">
+                    {/* Key Metric Banner */}
+                    <div className="flex items-center justify-between p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-800/60 border border-white/10 shadow-inner">
+                      <div className="pr-2">
+                        <span className="text-[10px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider block">Highlight Metric</span>
+                        <h4 className="text-xs sm:text-sm font-semibold text-slate-200 mt-0.5">{modalData[activeModal].metricLabel}</h4>
+                      </div>
+                      <div className={`text-xl sm:text-3xl font-extrabold whitespace-nowrap ${modalData[activeModal].iconColor}`}>
+                        {modalData[activeModal].metricValue}
+                      </div>
+                    </div>
 
-              {/* Footer */}
-              <div className="p-4 bg-slate-950/60 border-t border-white/10 flex justify-end">
-                <button
-                  onClick={() => setActiveModal(null)}
-                  className="px-5 py-2 text-sm font-medium rounded-xl bg-white/10 hover:bg-white/15 text-white transition-colors"
-                >
-                  Close
-                </button>
+                    {/* Detailed Highlights */}
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-400 mb-2 sm:mb-3">
+                        Overview & Key Takeaways
+                      </h4>
+                      <div className="grid gap-2 sm:gap-3">
+                        {modalData[activeModal].bullets.map((item, idx) => {
+                          const IconComponent = item.icon;
+                          return (
+                            <div key={idx} className="flex items-start gap-2.5 sm:gap-3.5 p-2.5 sm:p-3 rounded-xl bg-slate-800/30 border border-white/5 hover:border-white/10 transition-colors">
+                              <div className={`p-1.5 sm:p-2 rounded-lg bg-slate-800 flex-shrink-0 mt-0.5 ${modalData[activeModal].iconColor}`}>
+                                <IconComponent className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <p className="text-xs sm:text-sm font-bold text-slate-200">{item.label}</p>
+                                <p className="text-[11px] sm:text-sm text-slate-400 leading-relaxed mt-0.5">{item.value}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Footer */}
+                  <div className="p-3 sm:p-4 bg-slate-950/80 border-t border-white/10 flex justify-end flex-shrink-0">
+                    <button
+                      onClick={() => setActiveModal(null)}
+                      className="w-full sm:w-auto px-5 py-2 text-sm font-medium rounded-xl bg-white/10 hover:bg-white/15 active:scale-95 text-white transition-all cursor-pointer text-center"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-          </div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
-    </motion.div>
+    </>
   );
 }
 

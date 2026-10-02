@@ -244,4 +244,17 @@ export const feedbackData = [{
       "I recently completed the Advanced Excel, Power BI, and SQL course at Techmax, and it was a great learning experience. A special thanks to Aron, the trainer, for explaining the concepts clearly and patiently. The sessions were practical and easy to understand, especially the hands-on exercises in Excel, Power BI, and SQL. The way Aron explained the concepts with real-world examples made it easier to understand and apply them. Overall, I’m happy with the training and would recommend Techmax to anyone looking to improve their skills in Advanced Excel, Power BI, and SQL.",
     useForDashboard: true,
   },
+  {
+    id: 20,
+    timestamp: "2026-10-02T08:08:12",
+    email: "sakthirajan.s@gmail.com",
+    name: "Sakthirajan S",
+    degree: "BE",
+    designation: "Lead",
+    course: "Advance Excel",
+    rating: 5,
+    review:
+      "The Advanced Excel training was very informative and useful. The trainer explained the concepts clearly with practical examples and hands-on exercises, making it easy to understand and apply in day-to-day work. The session enhanced my knowledge of advanced Excel functions, PivotTables, data analysis, and reporting techniques. Overall, it was an excellent learning experience. Thank you to the trainer for the valuable guidance and support.",
+    useForDashboard: true,
+  },
 ];
