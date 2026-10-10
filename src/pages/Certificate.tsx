@@ -38,6 +38,11 @@ import simplilearnAILiteracyPDF from "../documents/certificate ai quiz.pdf";
 import anthropicAIFluencyImg from "../assets/anthropic_ai_fluency.png";
 import anthropicAIFluencyPDF from "../documents/antopic ai certificate.pdf";
 
+import ibmAiImg from "../assets/ibm_ai_fundamentals.png";
+import ibmAiPDF from "../documents/IBM-Artificial-Intelligence-Fundamentals.pdf";
+
+import oceanJavaAIImg from "../assets/java_with_ai_ocean_academy.jpg";
+
 import oracleJavaImg from "../assets/oracle java certificate.jpg";
 
 import dataAnalystAIImg from "../assets/Data Analytics + AI.jpg";
@@ -51,6 +56,7 @@ interface CertificateItem {
   credentialId?: string;
   issued?: string;
   provider?: string;
+  verifyUrl?: string;
 }
 
 interface CertificateCategory {
@@ -63,6 +69,15 @@ function Certificate() {
     {
       category: "🤖 Generative AI & AI Certifications",
       certificates: [
+        {
+          name: "Artificial Intelligence Fundamentals",
+          img: ibmAiImg,
+          pdf: ibmAiPDF,
+          credentialId: "90bb6545-4af5-4cc5-bb88-bfe5e7220d9f",
+          issued: "October 3, 2026",
+          provider: "IBM SkillsBuild",
+          verifyUrl: "https://www.credly.com/badges/90bb6545-4af5-4cc5-bb88-bfe5e7220d9f/public_url",
+        },
         {
           name: "AI Fluency: Framework & Foundations",
           img: anthropicAIFluencyImg,
@@ -87,18 +102,13 @@ function Certificate() {
           provider: "Databricks",
         },
         {
-          name: "AI in Accounting 101: CAIRA Essential Badge",
+          name: "AI in Accounting 101: CAIRA Essentials",
           img: milesAIImg,
           pdf: milesAIImg,
+          credentialId: "f89e5b59-d0e2-4ff5-84eb-816fbd28bfa8",
           issued: "August 10, 2026",
           provider: "Miles Education & CAIRA",
-        },
-        {
-          name: "Master the Power of Generative AI",
-          img: guviAIImg,
-          pdf: guviAIImg,
-          issued: "August 14, 2026",
-          provider: "GUVI & HCL",
+          verifyUrl: "https://www.credly.com/badges/f89e5b59-d0e2-4ff5-84eb-816fbd28bfa8/public_url",
         },
         {
           name: "AI For India 2.0",
@@ -207,6 +217,25 @@ function Certificate() {
       ],
     },
     {
+      category: "🤝 Participation Certifications",
+      certificates: [
+        {
+          name: "Java with AI",
+          img: oceanJavaAIImg,
+          pdf: oceanJavaAIImg,
+          issued: "October 3, 2026",
+          provider: "Ocean Academy",
+        },
+        {
+          name: "Master the Power of Generative AI",
+          img: guviAIImg,
+          pdf: guviAIImg,
+          issued: "August 14, 2026",
+          provider: "GUVI & HCL",
+        },
+      ],
+    },
+    {
       category: "🧪 Software Testing Certifications",
       certificates: [
         {
@@ -263,10 +292,13 @@ function Certificate() {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" as const } },
   };
 
-  const getCertificateType = (cert: CertificateItem, categoryName: string): 'course' | 'quiz' | 'internship' => {
+  const getCertificateType = (cert: CertificateItem, categoryName: string): 'course' | 'quiz' | 'internship' | 'participation' => {
     const name = cert.name.toLowerCase();
     const cat = categoryName.toLowerCase();
 
+    if (cat.includes("participation") || name.includes("participation")) {
+      return "participation";
+    }
     if (name.includes("quiz")) {
       return "quiz";
     }
@@ -280,7 +312,7 @@ function Certificate() {
 
   const [selectedType, setSelectedType] = useState("All");
 
-  const filterTypes = ["All", "Courses", "Quizzes", "Internships"];
+  const filterTypes = ["All", "Courses", "Participation", "Quizzes", "Internships"];
 
   const filteredCategories = certificateCategories.map(cat => ({
     ...cat,
@@ -288,6 +320,7 @@ function Certificate() {
       const type = getCertificateType(cert, cat.category);
       if (selectedType === "All") return true;
       if (selectedType === "Courses") return type === "course";
+      if (selectedType === "Participation") return type === "participation";
       if (selectedType === "Quizzes") return type === "quiz";
       if (selectedType === "Internships") return type === "internship";
       return true;
@@ -383,7 +416,7 @@ function Certificate() {
                           {cert.name}
                         </h4>
 
-                        {(cert.credentialId || cert.issued) && (
+                        {(cert.credentialId || cert.issued || cert.verifyUrl) && (
                           <div className="flex flex-col gap-1 text-xs text-slate-400 font-mono mt-2">
                             {cert.credentialId && (
                               <span className="text-cyan-400/95">
@@ -393,6 +426,18 @@ function Certificate() {
                             {cert.issued && (
                               <span>
                                 Issued: {cert.issued}
+                              </span>
+                            )}
+                            {cert.verifyUrl && (
+                              <span
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  window.open(cert.verifyUrl, "_blank", "noopener,noreferrer");
+                                }}
+                                className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2 transition-colors cursor-pointer mt-0.5 inline-block"
+                              >
+                                Verify Credential ↗
                               </span>
                             )}
                           </div>
