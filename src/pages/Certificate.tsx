@@ -47,6 +47,9 @@ import oracleJavaImg from "../assets/oracle java certificate.jpg";
 
 import dataAnalystAIImg from "../assets/Data Analytics + AI.jpg";
 
+import ciscoCertImg from "../assets/cisco_data_science_certificate.png";
+import ciscoCertPDF from "../documents/Cisco-Introduction-to-Data-Science-Certificate.pdf";
+
 import { motion } from "framer-motion";
 
 interface CertificateItem {
@@ -122,6 +125,14 @@ function Certificate() {
     {
       category: "📊 Data & Analytics Certifications",
       certificates: [
+        {
+          name: "Introduction to Data Science",
+          img: ciscoCertImg,
+          pdf: ciscoCertPDF,
+          credentialId: "b48e9ef0-c183-44b5-8206-8a6b7772b8e8",
+          issued: "October 13, 2026",
+          provider: "Cisco Networking Academy",
+        },
         {
           name: "Data Analyst + AI Course",
           img: dataAnalystAIImg,
