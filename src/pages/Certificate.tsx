@@ -132,6 +132,7 @@ function Certificate() {
           credentialId: "b48e9ef0-c183-44b5-8206-8a6b7772b8e8",
           issued: "October 13, 2026",
           provider: "Cisco Networking Academy",
+          verifyUrl: "https://www.credly.com/badges/a3efcd41-4a82-444b-a315-b39020ea9fb0/public_url",
         },
         {
           name: "Data Analyst + AI Course",
