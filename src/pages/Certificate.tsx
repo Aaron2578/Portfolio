@@ -41,6 +41,9 @@ import anthropicAIFluencyPDF from "../documents/antopic ai certificate.pdf";
 import ibmAiImg from "../assets/ibm_ai_fundamentals.png";
 import ibmAiPDF from "../documents/IBM-Artificial-Intelligence-Fundamentals.pdf";
 
+import courseraGoogleAIImg from "../assets/coursera_google_ai.png";
+import courseraGoogleAIPDF from "../documents/Coursera Introduction to AI.pdf";
+
 import oceanJavaAIImg from "../assets/java_with_ai_ocean_academy.jpg";
 
 import oracleJavaImg from "../assets/oracle java certificate.jpg";
@@ -72,6 +75,15 @@ function Certificate() {
     {
       category: "🤖 Generative AI & AI Certifications",
       certificates: [
+        {
+          name: "Introduction to AI",
+          img: courseraGoogleAIImg,
+          pdf: courseraGoogleAIPDF,
+          credentialId: "JMEGR1E7ML90",
+          issued: "October 21, 2026",
+          provider: "Google",
+          verifyUrl: "https://www.coursera.org/account/accomplishments/verify/JMEGR1E7ML90",
+        },
         {
           name: "Artificial Intelligence Fundamentals",
           img: ibmAiImg,

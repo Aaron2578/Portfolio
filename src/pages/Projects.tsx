@@ -1,3 +1,4 @@
+import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { Github } from "lucide-react";
@@ -10,10 +11,13 @@ import {
   FaBootstrap,
   FaShare,
   FaServer,
+  FaFileExcel,
 } from "react-icons/fa"; // FontAwesome
-import { SiTailwindcss, SiTypescript } from "react-icons/si";
+import { SiTailwindcss, SiTypescript, SiPython } from "react-icons/si";
+import { MdInsertChart } from "react-icons/md";
 import Button from "../components/Button";
 
+import powerbiDashboard from "../assets/powerbi-dashboard.png";
 import pic from "../assets/recipes-img.png";
 import suryaTailor from "../assets/surya-tailor.png";
 import todoList from "../assets/todo_list.png";
@@ -29,10 +33,40 @@ import sportifyEventz from "../assets/sportifyEventz.png";
 
 import { motion } from "framer-motion";
 
+interface ProjectItem {
+  id: number;
+  project_name: string;
+  img: string;
+  description: string;
+  sourceCode?: string;
+  liveProject: string;
+  status: "Completed" | "Building" | "Updating";
+  icon: React.ReactNode[];
+  view: "responsive" | "mobile" | "desktop";
+  btnDisplay?: boolean;
+}
+
 function Projects() {
-  const projects = [
+  const projects: ProjectItem[] = [
     {
       id: 1,
+      project_name: "Power BI Interactive Analytics Dashboard",
+      img: powerbiDashboard,
+      description:
+        "An end-to-end interactive Business Intelligence & Data Analytics Dashboard built with Microsoft Power BI. It transforms raw datasets into actionable intelligence through dynamic data modeling, KPI tracking, interactive charts, and multi-dimensional drill-down slicers. Explore the live embedded report to filter metrics, inspect trend lines, and experience real-time analytics in action.",
+      liveProject: "/analytics-dashboard.html",
+      status: "Completed",
+      icon: [
+        <MdInsertChart key="powerbi" size={40} color="#f2c811" title="Power BI" />,
+        <FaFileExcel key="excel" size={36} color="#217346" title="Excel" />,
+        <DiMysql key="mysql" size={40} color="#4479A1" title="MySQL" />,
+        <SiPython key="python" size={38} color="#3776AB" title="Python" />,
+      ],
+      view: "desktop",
+      btnDisplay: true,
+    },
+    {
+      id: 2,
       project_name: "Web Recipes",
       img: pic,
       description:
@@ -48,7 +82,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 2,
+      id: 3,
       project_name: "Surya Tailor",
       img: suryaTailor,
       description:
@@ -63,7 +97,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 3,
+      id: 4,
       project_name: "To-Do List",
       img: todoList,
       description:
@@ -78,7 +112,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 4,
+      id: 5,
       project_name: "Positivus - Marketing Website",
       img: positivus,
       description:
@@ -93,7 +127,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 5,
+      id: 6,
       project_name: "Weather Web App",
       img: weatherApp,
       description:
@@ -108,7 +142,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 6,
+      id: 7,
       project_name: "Instagram Clone",
       img: instagramClone,
       description:
@@ -124,7 +158,7 @@ function Projects() {
       view: "desktop",
     },
     {
-      id: 7,
+      id: 8,
       project_name: "MatchVerse - Matrimony Website",
       img: matrimony,
       description:
@@ -139,7 +173,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 8,
+      id: 9,
       project_name: "Bank Flow",
       img: bankFlow,
       description:
@@ -154,7 +188,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 9,
+      id: 10,
       project_name: "Qr Code Generator",
       img: qrCode,
       description:
@@ -169,7 +203,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 10,
+      id: 11,
       project_name: "Profile Card",
       img: profileCard,
       description:
@@ -184,7 +218,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 11,
+      id: 12,
       project_name: "EduSphere - Department Website",
       img: eduSphere,
       description:
@@ -203,7 +237,7 @@ function Projects() {
       btnDisplay: true,
     },
     {
-      id: 12,
+      id: 13,
       project_name: "Sportify Eventz - Sports Website",
       img: sportifyEventz,
       description:
@@ -234,8 +268,6 @@ function Projects() {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
-
-
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-white">
@@ -282,7 +314,9 @@ function Projects() {
                 </div>
                 <div className="flex flex-wrap gap-2.5 justify-center py-2 bg-slate-950/40 rounded-2xl border border-white/5 px-3">
                   {i.icon?.map((p: React.ReactNode, idx: number) => (
-                    <div key={idx} className="scale-90 hover:scale-100 transition-transform duration-200">{p}</div>
+                    <div key={idx} className="scale-90 hover:scale-100 transition-transform duration-200">
+                      {p}
+                    </div>
                   ))}
                 </div>
               </div>
