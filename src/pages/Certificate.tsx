@@ -44,6 +44,15 @@ import ibmAiPDF from "../documents/IBM-Artificial-Intelligence-Fundamentals.pdf"
 import courseraGoogleAIImg from "../assets/coursera_google_ai.png";
 import courseraGoogleAIPDF from "../documents/Coursera Introduction to AI.pdf";
 
+import googleProdAIImg from "../assets/coursera_maximize_productivity_ai.png";
+import googleProdAIPDF from "../documents/Coursera 8N2252QALESI.pdf";
+
+import googlePromptingImg from "../assets/coursera_discover_prompting.png";
+import googlePromptingPDF from "../documents/Coursera R8LODF2QYYJR.pdf";
+
+import googleResponsibleAIImg from "../assets/coursera_use_ai_responsibly.png";
+import googleResponsibleAIPDF from "../documents/Use AI Responsibly.pdf";
+
 import oceanJavaAIImg from "../assets/java_with_ai_ocean_academy.jpg";
 
 import oracleJavaImg from "../assets/oracle java certificate.jpg";
@@ -75,6 +84,33 @@ function Certificate() {
     {
       category: "🤖 Generative AI & AI Certifications",
       certificates: [
+        {
+          name: "Use AI Responsibly",
+          img: googleResponsibleAIImg,
+          pdf: googleResponsibleAIPDF,
+          credentialId: "22QPEHWGCBIO",
+          issued: "October 24, 2026",
+          provider: "Google",
+          verifyUrl: "https://coursera.org/verify/22QPEHWGCBIO",
+        },
+        {
+          name: "Discover the Art of Prompting",
+          img: googlePromptingImg,
+          pdf: googlePromptingPDF,
+          credentialId: "R8LODF2QYYJR",
+          issued: "October 24, 2026",
+          provider: "Google",
+          verifyUrl: "https://coursera.org/verify/R8LODF2QYYJR",
+        },
+         {
+          name: "Maximize Productivity With AI Tools",
+          img: googleProdAIImg,
+          pdf: googleProdAIPDF,
+          credentialId: "8N2252QALESI",
+          issued: "October 24, 2026",
+          provider: "Google",
+          verifyUrl: "https://coursera.org/verify/8N2252QALESI",
+        },
         {
           name: "Introduction to AI",
           img: courseraGoogleAIImg,

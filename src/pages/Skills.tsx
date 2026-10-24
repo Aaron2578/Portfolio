@@ -1,6 +1,19 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { Monitor, UserCheck, PenTool, Users, Activity } from "lucide-react";
+import {
+  Monitor,
+  UserCheck,
+  PenTool,
+  Users,
+  Activity,
+  Bot,
+  Sparkles,
+  Brain,
+  Cpu,
+  ShieldCheck,
+  Wand2,
+  MessageSquareCode,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 import {
@@ -28,7 +41,10 @@ import {
   SiSpring,
   SiMongodb,
   SiTableau,
-  SiExpress
+  SiExpress,
+  SiOpenai,
+  SiGoogle,
+  SiAnthropic,
 } from "react-icons/si"; // SimpleIcons
 import { DiPhp, DiMysql } from "react-icons/di";
 import { MdInsertChart } from "react-icons/md"; // Material Design Icons
@@ -64,6 +80,27 @@ function Skills() {
     { name: "Spring Boot", icon: <SiSpring size={24} color="#6DB33F" /> },
     { name: "Express", icon: <SiExpress size={24} color="#ffffff" /> }
   ];
+
+  // AI & Prompt Engineering
+  const aiCoreSkills = [
+    { name: "Generative AI", icon: <Brain size={24} className="text-purple-400" /> },
+    { name: "Prompt Engineering", icon: <Wand2 size={24} className="text-amber-400" /> },
+    { name: "Large Language Models (LLMs)", icon: <Cpu size={24} className="text-cyan-400" /> },
+    { name: "Responsible AI & Ethics", icon: <ShieldCheck size={24} className="text-emerald-400" /> },
+  ];
+
+  const aiTools = [
+    { name: "ChatGPT / OpenAI", icon: <SiOpenai size={24} color="#10a37f" /> },
+    { name: "Google Gemini", icon: <SiGoogle size={24} color="#4285F4" /> },
+    { name: "Anthropic Claude", icon: <SiAnthropic size={24} color="#d97706" /> },
+    { name: "AI Productivity Tools", icon: <Sparkles size={24} className="text-yellow-400" /> },
+  ];
+
+  const appliedAI = [
+    { name: "Prompt Structuring & Iteration", icon: <MessageSquareCode size={24} className="text-blue-400" /> },
+    { name: "AI-Assisted Development", icon: <Bot size={24} className="text-indigo-400" /> },
+  ];
+
   const versionControl = [
     {
       name: "Git",
@@ -146,7 +183,7 @@ function Skills() {
             Skills & Expertise
           </h2>
           <p className="text-gray-400 mt-2 text-sm sm:text-base">
-            A listing of development stacks, database systems, designs tools, and analytical software I use.
+            A listing of development stacks, database systems, AI tools, design suites, and analytical software I use.
           </p>
           <div className="w-12 h-1 bg-blue-600 mx-auto mt-3 rounded-full" />
         </div>
@@ -198,6 +235,39 @@ function Skills() {
               <div className="flex flex-col gap-2">
                 <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">Databases</span>
                 <div className="flex flex-wrap gap-3">{renderSkills(dataBase)}</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* AI & Prompt Engineering Category */}
+          <motion.div className="bg-slate-900/20 border border-purple-500/20 hover:border-purple-500/40 rounded-3xl p-6 backdrop-blur-md shadow-xl flex flex-col gap-6 md:col-span-2 transition-colors duration-300">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h3 className="text-xl font-bold border-l-4 border-purple-500 pl-3 text-white montserrat uppercase tracking-wider text-[15px] flex items-center gap-2">
+                <Sparkles size={18} className="text-purple-400" /> AI & Prompt Engineering
+              </h3>
+              <span className="text-xs bg-purple-950/60 text-purple-300 border border-purple-500/20 px-3 py-1 rounded-full font-mono font-semibold">
+                Google & IBM Certified
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex flex-col gap-2">
+                <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                  Core AI Foundations
+                </span>
+                <div className="flex flex-wrap gap-3">{renderSkills(aiCoreSkills)}</div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                  Models & Platforms
+                </span>
+                <div className="flex flex-wrap gap-3">{renderSkills(aiTools)}</div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                  Applied Techniques
+                </span>
+                <div className="flex flex-wrap gap-3">{renderSkills(appliedAI)}</div>
               </div>
             </div>
           </motion.div>
