@@ -41,17 +41,10 @@ import anthropicAIFluencyPDF from "../documents/antopic ai certificate.pdf";
 import ibmAiImg from "../assets/ibm_ai_fundamentals.png";
 import ibmAiPDF from "../documents/IBM-Artificial-Intelligence-Fundamentals.pdf";
 
-import courseraGoogleAIImg from "../assets/coursera_google_ai.png";
-import courseraGoogleAIPDF from "../documents/Coursera Introduction to AI.pdf";
+import courseraAIEssentialsImg from "../assets/coursera_ai_essentials_overall.png";
+import courseraAIEssentialsPDF from "../documents/Coursera Ai Essential Overall Certificate.pdf";
 
-import googleProdAIImg from "../assets/coursera_maximize_productivity_ai.png";
-import googleProdAIPDF from "../documents/Coursera 8N2252QALESI.pdf";
 
-import googlePromptingImg from "../assets/coursera_discover_prompting.png";
-import googlePromptingPDF from "../documents/Coursera R8LODF2QYYJR.pdf";
-
-import googleResponsibleAIImg from "../assets/coursera_use_ai_responsibly.png";
-import googleResponsibleAIPDF from "../documents/Use AI Responsibly.pdf";
 
 import oceanJavaAIImg from "../assets/java_with_ai_ocean_academy.jpg";
 
@@ -61,6 +54,9 @@ import dataAnalystAIImg from "../assets/Data Analytics + AI.jpg";
 
 import ciscoCertImg from "../assets/cisco_data_science_certificate.png";
 import ciscoCertPDF from "../documents/Cisco-Introduction-to-Data-Science-Certificate.pdf";
+
+import ethicalHackingImg from "../assets/ethical_hacking_cert.png";
+import ethicalHackingPDF from "../documents/Aaron C_WS_2026_M_68098_Certificate.pdf";
 
 import { motion } from "framer-motion";
 
@@ -72,6 +68,7 @@ interface CertificateItem {
   issued?: string;
   provider?: string;
   verifyUrl?: string;
+  isBadge?: boolean;
 }
 
 interface CertificateCategory {
@@ -82,43 +79,40 @@ interface CertificateCategory {
 function Certificate() {
   const certificateCategories: CertificateCategory[] = [
     {
+      category: "🎖️ Verified Digital Badges",
+      certificates: [
+        {
+          name: "Databricks Accredited Generative AI Fundamentals",
+          img: databricksGenAIImg,
+          pdf: databricksGenAIImg,
+          credentialId: "191037528",
+          issued: "August 9, 2026",
+          provider: "Databricks",
+          isBadge: true,
+        },
+        {
+          name: "AI in Accounting 101: CAIRA Essentials Badge",
+          img: milesAIImg,
+          pdf: milesAIImg,
+          credentialId: "f89e5b59-d0e2-4ff5-84eb-816fbd28bfa8",
+          issued: "August 10, 2026",
+          provider: "Miles Education & CAIRA (Credly)",
+          verifyUrl: "https://www.credly.com/badges/f89e5b59-d0e2-4ff5-84eb-816fbd28bfa8/public_url",
+          isBadge: true,
+        },
+      ],
+    },
+    {
       category: "🤖 Generative AI & AI Certifications",
       certificates: [
         {
-          name: "Use AI Responsibly",
-          img: googleResponsibleAIImg,
-          pdf: googleResponsibleAIPDF,
-          credentialId: "22QPEHWGCBIO",
-          issued: "October 24, 2026",
-          provider: "Google",
-          verifyUrl: "https://coursera.org/verify/22QPEHWGCBIO",
-        },
-        {
-          name: "Discover the Art of Prompting",
-          img: googlePromptingImg,
-          pdf: googlePromptingPDF,
-          credentialId: "R8LODF2QYYJR",
-          issued: "October 24, 2026",
-          provider: "Google",
-          verifyUrl: "https://coursera.org/verify/R8LODF2QYYJR",
-        },
-         {
-          name: "Maximize Productivity With AI Tools",
-          img: googleProdAIImg,
-          pdf: googleProdAIPDF,
-          credentialId: "8N2252QALESI",
-          issued: "October 24, 2026",
-          provider: "Google",
-          verifyUrl: "https://coursera.org/verify/8N2252QALESI",
-        },
-        {
-          name: "Introduction to AI",
-          img: courseraGoogleAIImg,
-          pdf: courseraGoogleAIPDF,
-          credentialId: "JMEGR1E7ML90",
-          issued: "October 21, 2026",
-          provider: "Google",
-          verifyUrl: "https://www.coursera.org/account/accomplishments/verify/JMEGR1E7ML90",
+          name: "Google AI Essentials Specialization",
+          img: courseraAIEssentialsImg,
+          pdf: courseraAIEssentialsPDF,
+          credentialId: "Q6U6JEJDEJ3U",
+          issued: "October 25, 2026",
+          provider: "Google (Coursera & Credly)",
+          verifyUrl: "https://www.credly.com/badges/377da608-b38e-48c2-98a9-24c1380c23a6/public_url",
         },
         {
           name: "Artificial Intelligence Fundamentals",
@@ -126,7 +120,7 @@ function Certificate() {
           pdf: ibmAiPDF,
           credentialId: "90bb6545-4af5-4cc5-bb88-bfe5e7220d9f",
           issued: "October 3, 2026",
-          provider: "IBM SkillsBuild",
+          provider: "IBM SkillsBuild (Credly)",
           verifyUrl: "https://www.credly.com/badges/90bb6545-4af5-4cc5-bb88-bfe5e7220d9f/public_url",
         },
         {
@@ -145,28 +139,25 @@ function Certificate() {
           provider: "Simplilearn SkillUP",
         },
         {
-          name: "Databricks Accredited Generative AI Fundamentals",
-          img: databricksGenAIImg,
-          pdf: databricksGenAIImg,
-          credentialId: "191037528",
-          issued: "August 9, 2026",
-          provider: "Databricks",
-        },
-        {
-          name: "AI in Accounting 101: CAIRA Essentials",
-          img: milesAIImg,
-          pdf: milesAIImg,
-          credentialId: "f89e5b59-d0e2-4ff5-84eb-816fbd28bfa8",
-          issued: "August 10, 2026",
-          provider: "Miles Education & CAIRA",
-          verifyUrl: "https://www.credly.com/badges/f89e5b59-d0e2-4ff5-84eb-816fbd28bfa8/public_url",
-        },
-        {
           name: "AI For India 2.0",
           img: guviAIForIndiaImg,
           pdf: guviAIForIndiaImg,
           issued: "August 15, 2023",
           provider: "GUVI & Skill India",
+        },
+      ],
+    },
+
+    {
+      category: "🛡️ Cybersecurity & Ethical Hacking",
+      certificates: [
+        {
+          name: "Learn Ethical Hacking from Scratch",
+          img: ethicalHackingImg,
+          pdf: ethicalHackingPDF,
+          credentialId: "WS/2026/M/68098",
+          issued: "October 26, 2026",
+          provider: "WsCube Tech",
         },
       ],
     },
@@ -179,7 +170,7 @@ function Certificate() {
           pdf: ciscoCertPDF,
           credentialId: "b48e9ef0-c183-44b5-8206-8a6b7772b8e8",
           issued: "October 13, 2026",
-          provider: "Cisco Networking Academy",
+          provider: "Cisco Networking Academy (Credly)",
           verifyUrl: "https://www.credly.com/badges/a3efcd41-4a82-444b-a315-b39020ea9fb0/public_url",
         },
         {
@@ -352,10 +343,13 @@ function Certificate() {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" as const } },
   };
 
-  const getCertificateType = (cert: CertificateItem, categoryName: string): 'course' | 'quiz' | 'internship' | 'participation' => {
+  const getCertificateType = (cert: CertificateItem, categoryName: string): 'course' | 'quiz' | 'internship' | 'participation' | 'badge' => {
     const name = cert.name.toLowerCase();
     const cat = categoryName.toLowerCase();
 
+    if (cert.isBadge || cat.includes("badge") || name.includes("badge")) {
+      return "badge";
+    }
     if (cat.includes("participation") || name.includes("participation")) {
       return "participation";
     }
@@ -372,13 +366,14 @@ function Certificate() {
 
   const [selectedType, setSelectedType] = useState("All");
 
-  const filterTypes = ["All", "Courses", "Participation", "Quizzes", "Internships"];
+  const filterTypes = ["All", "Badges", "Courses", "Participation", "Quizzes", "Internships"];
 
   const filteredCategories = certificateCategories.map(cat => ({
     ...cat,
     certificates: cat.certificates.filter(cert => {
       const type = getCertificateType(cert, cat.category);
       if (selectedType === "All") return true;
+      if (selectedType === "Badges") return type === "badge";
       if (selectedType === "Courses") return type === "course";
       if (selectedType === "Participation") return type === "participation";
       if (selectedType === "Quizzes") return type === "quiz";
@@ -456,11 +451,11 @@ function Certificate() {
                     variants={cardVariants}
                     className="group bg-slate-900/40 border border-white/5 backdrop-blur-md rounded-3xl overflow-hidden hover:border-cyan-400/50 hover:bg-slate-900/50 transition-all duration-300 hover:scale-[1.02] shadow-xl flex flex-col h-full"
                   >
-                    <div className="overflow-hidden aspect-video bg-slate-950 flex items-center justify-center border-b border-white/5">
+                    <div className={`overflow-hidden aspect-video bg-slate-950 flex items-center justify-center border-b border-white/5 ${cert.isBadge ? 'p-6 bg-gradient-to-b from-slate-900/60 to-slate-950' : ''}`}>
                       <img
                         src={cert.img}
                         alt={cert.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                        className={`${cert.isBadge ? 'h-full max-h-36 object-contain drop-shadow-xl group-hover:scale-110' : 'w-full h-full object-cover group-hover:scale-105'} transition duration-500`}
                       />
                     </div>
 
@@ -505,7 +500,7 @@ function Certificate() {
                       </div>
 
                       <p className="text-slate-400 text-xs text-center font-mono mt-4 uppercase tracking-wider">
-                        Click to view credential
+                        {cert.isBadge ? "Click to view badge" : "Click to view credential"}
                       </p>
                     </div>
                   </motion.a>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github } from "lucide-react";
+import { SiCredly } from "react-icons/si";
 import { NavLink } from "react-router-dom";
 
 function CtaFooter() {
@@ -49,6 +50,7 @@ function CtaFooter() {
               href="https://www.linkedin.com/in/aaron-dev/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
               className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-gray-700 hover:border-white flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300"
             >
               <Linkedin size={20} />
@@ -59,18 +61,34 @@ function CtaFooter() {
               href="https://github.com/aaron2578"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
               className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-gray-700 hover:border-white flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300"
             >
               <Github size={20} />
             </a>
 
-            {/* Email */}
+              {/* Email */}
             <a
               href="mailto:aaronc2578@gmail.com"
+              aria-label="Email"
               className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-gray-700 hover:border-white flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300"
             >
               <Mail size={20} />
             </a>
+
+            {/* Credly */}
+            <a
+              href="https://www.credly.com/earner/earned/badge/377da608-b38e-48c2-98a9-24c1380c23a6"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Credly"
+              title="Credly Profile & Badges"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-gray-700 hover:border-[#FF6B00] hover:text-[#FF6B00] flex items-center justify-center text-gray-400 transition-all duration-300"
+            >
+              <SiCredly size={20} />
+            </a>
+
+          
           </div>
         </div>
       </div>

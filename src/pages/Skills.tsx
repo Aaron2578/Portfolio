@@ -14,6 +14,8 @@ import {
   Wand2,
   MessageSquareCode,
 } from "lucide-react";
+import photoCraftImg from "../assets/photocraft.png";
+import vectorCraftImg from "../assets/vectorcraft.png";
 import { motion } from "framer-motion";
 
 import {
@@ -139,6 +141,14 @@ function Skills() {
       name: "Adobe illustrator",
       icon: <SiAdobeillustrator size={24} color="#FF9A00" />,
     },
+    {
+      name: "PhotoCraft",
+      icon: <img src={photoCraftImg} alt="PhotoCraft" className="w-6 h-6 object-contain rounded-md" />,
+    },
+    {
+      name: "VectorCraft",
+      icon: <img src={vectorCraftImg} alt="VectorCraft" className="w-6 h-6 object-contain rounded-md" />,
+    },
   ];
 
   const professionalSkills = [
@@ -196,7 +206,7 @@ function Skills() {
           viewport={{ once: true, amount: 0.05 }}
         >
           {/* Front-end Category */}
-          <motion.div className="bg-slate-900/20 border border-white/5 rounded-3xl p-6 backdrop-blur-md shadow-xl flex flex-col gap-6">
+          <motion.div className="bg-slate-900/20 border border-blue-500/20 hover:border-blue-500/40 rounded-3xl p-6 backdrop-blur-md shadow-xl flex flex-col gap-6 transition-colors duration-300">
             <h3 className="text-xl font-bold border-l-4 border-blue-500 pl-3 text-white montserrat uppercase tracking-wider text-[15px]">
               Front-end Development
             </h3>
@@ -218,7 +228,7 @@ function Skills() {
           </motion.div>
 
           {/* Back-end Category */}
-          <motion.div className="bg-slate-900/20 border border-white/5 rounded-3xl p-6 backdrop-blur-md shadow-xl flex flex-col gap-6">
+          <motion.div className="bg-slate-900/20 border border-emerald-500/20 hover:border-emerald-500/40 rounded-3xl p-6 backdrop-blur-md shadow-xl flex flex-col gap-6 transition-colors duration-300">
             <h3 className="text-xl font-bold border-l-4 border-emerald-500 pl-3 text-white montserrat uppercase tracking-wider text-[15px]">
               Back-end Development
             </h3>
@@ -273,7 +283,7 @@ function Skills() {
           </motion.div>
 
           {/* Data Analytics & Version Control */}
-          <motion.div className="bg-slate-900/20 border border-white/5 rounded-3xl p-6 backdrop-blur-md shadow-xl flex flex-col gap-6">
+          <motion.div className="bg-slate-900/20 border border-indigo-500/20 hover:border-indigo-500/40 rounded-3xl p-6 backdrop-blur-md shadow-xl flex flex-col gap-6 transition-colors duration-300">
             <h3 className="text-xl font-bold border-l-4 border-indigo-500 pl-3 text-white montserrat uppercase tracking-wider text-[15px]">
               Data Analytics & Versioning
             </h3>
@@ -291,7 +301,7 @@ function Skills() {
           </motion.div>
 
           {/* Creative Tools & Professional Skills */}
-          <motion.div className="bg-slate-900/20 border border-white/5 rounded-3xl p-6 backdrop-blur-md shadow-xl flex flex-col gap-6">
+          <motion.div className="bg-slate-900/20 border border-pink-500/20 hover:border-pink-500/40 rounded-3xl p-6 backdrop-blur-md shadow-xl flex flex-col gap-6 transition-colors duration-300">
             <h3 className="text-xl font-bold border-l-4 border-pink-500 pl-3 text-white montserrat uppercase tracking-wider text-[15px]">
               Design & Collaboration
             </h3>
