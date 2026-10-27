@@ -32,7 +32,8 @@ import besantTestingImg from "../assets/besant_software_testing.png";
 import guviPythonTamilImg from "../assets/guvi_python_tamil.png";
 import guviAIForIndiaImg from "../assets/guvi_ai_for_india.png";
 import fivesqlAdvancedImg from "../assets/fivesql_quiz_advanced.png";
-import simplilearnAILiteracyImg from "../assets/simplilearn_data_science.png";
+
+import skillquestAILiteracyImg from "../assets/skillquest_ai_literacy.png";
 import simplilearnAILiteracyPDF from "../documents/certificate ai quiz.pdf";
 
 import anthropicAIFluencyImg from "../assets/anthropic_ai_fluency.png";
@@ -44,10 +45,13 @@ import ibmAiPDF from "../documents/IBM-Artificial-Intelligence-Fundamentals.pdf"
 import courseraAIEssentialsImg from "../assets/coursera_ai_essentials_overall.png";
 import courseraAIEssentialsPDF from "../documents/Coursera Ai Essential Overall Certificate.pdf";
 
+import geminiFacultyImg from "../assets/gemini_certified_faculty.png";
+import geminiFacultyPDF from "../documents/gemini_certified_faculty.pdf";
 
+import geminiStudentImg from "../assets/gemini_certified_university_student.png";
+import geminiStudentPDF from "../documents/gemini_certified_university_student.pdf";
 
 import oceanJavaAIImg from "../assets/java_with_ai_ocean_academy.jpg";
-
 import oracleJavaImg from "../assets/oracle java certificate.jpg";
 
 import dataAnalystAIImg from "../assets/Data Analytics + AI.jpg";
@@ -57,6 +61,15 @@ import ciscoCertPDF from "../documents/Cisco-Introduction-to-Data-Science-Certif
 
 import ethicalHackingImg from "../assets/ethical_hacking_cert.png";
 import ethicalHackingPDF from "../documents/Aaron C_WS_2026_M_68098_Certificate.pdf";
+
+import uiuxWorkshopImg from "../assets/ui-ux workshop.jpg";
+import uiuxWorkshopPDF from "../documents/UI_UX_Workshop_Certificate.pdf";
+
+import webDevWorkshopImg from "../assets/web development workshop.jpg";
+import webDevWorkshopPDF from "../documents/Web_Frontend_Development_Workshop_Certificate.pdf";
+
+import jsBootcampImg from "../assets/java bootcamp certificate.jpg";
+import jsBootcampPDF from "../documents/JavaScript_Bootcamp_Certificate.pdf";
 
 import { motion } from "framer-motion";
 
@@ -100,11 +113,37 @@ function Certificate() {
           verifyUrl: "https://www.credly.com/badges/f89e5b59-d0e2-4ff5-84eb-816fbd28bfa8/public_url",
           isBadge: true,
         },
+        {
+          name: "Oracle Java Foundations",
+          img: oracleJavaImg,
+          pdf: oracleJavaImg,
+          issued: "2024",
+          provider: "Oracle",
+          isBadge: true,
+        },
       ],
     },
     {
       category: "🤖 Generative AI & AI Certifications",
       certificates: [
+        {
+          name: "Gemini Certified Faculty",
+          img: geminiFacultyImg,
+          pdf: geminiFacultyPDF,
+          credentialId: "198391820",
+          issued: "October 27, 2026",
+          provider: "Google for Education",
+          verifyUrl: "https://edu.google.accredible.com/f66276a4-6f56-4a86-aca6-8a91f3eeddab",
+        },
+        {
+          name: "Gemini Certified University Student",
+          img: geminiStudentImg,
+          pdf: geminiStudentPDF,
+          credentialId: "198294675",
+          issued: "October 26, 2026",
+          provider: "Google for Education",
+          verifyUrl: "https://edu.google.accredible.com/145cbdee-8c57-4659-a36f-dbb091ab5e62",
+        },
         {
           name: "Google AI Essentials Specialization",
           img: courseraAIEssentialsImg,
@@ -124,6 +163,15 @@ function Certificate() {
           verifyUrl: "https://www.credly.com/badges/90bb6545-4af5-4cc5-bb88-bfe5e7220d9f/public_url",
         },
         {
+          name: "Databricks Accredited Generative AI Fundamentals",
+          img: databricksGenAIImg,
+          pdf: databricksGenAIImg,
+          credentialId: "191037528",
+          issued: "August 9, 2026",
+          provider: "Databricks",
+          isBadge: true,
+        },
+        {
           name: "AI Fluency: Framework & Foundations",
           img: anthropicAIFluencyImg,
           pdf: anthropicAIFluencyPDF,
@@ -132,7 +180,7 @@ function Certificate() {
         },
         {
           name: "SkillQuest - Generative AI Literacy",
-          img: simplilearnAILiteracyImg,
+          img: skillquestAILiteracyImg,
           pdf: simplilearnAILiteracyPDF,
           credentialId: "45929433",
           issued: "September 12, 2026",
@@ -147,7 +195,6 @@ function Certificate() {
         },
       ],
     },
-
     {
       category: "🛡️ Cybersecurity & Ethical Hacking",
       certificates: [
@@ -158,6 +205,34 @@ function Certificate() {
           credentialId: "WS/2026/M/68098",
           issued: "October 26, 2026",
           provider: "WsCube Tech",
+        },
+      ],
+    },
+    {
+      category: "🛠️ Workshop & Bootcamp Certifications",
+      certificates: [
+        {
+          name: "UI/UX Designing 45-Day Live Workshop",
+          img: uiuxWorkshopImg,
+          pdf: uiuxWorkshopPDF,
+          credentialId: "JRACN1520170156",
+          issued: "November 9, 2024",
+          provider: "Just Rise Technologies & Rendercity",
+        },
+        {
+          name: "Web Frontend Development 45-Day Live Workshop",
+          img: webDevWorkshopImg,
+          pdf: webDevWorkshopPDF,
+          credentialId: "JRACN1520170170",
+          issued: "November 9, 2024",
+          provider: "Just Rise Technologies & Rendercity",
+        },
+        {
+          name: "10-Day JavaScript Bootcamp",
+          img: jsBootcampImg,
+          pdf: jsBootcampPDF,
+          issued: "February 2024",
+          provider: "InternCall",
         },
       ],
     },
@@ -236,12 +311,6 @@ function Certificate() {
     {
       category: "💻 Development Certifications",
       certificates: [
-        {
-          name: "Oracle Java Foundations",
-          img: oracleJavaImg,
-          pdf: oracleJavaImg,
-          provider: "Oracle",
-        },
         {
           name: "Python Programming Course",
           img: guviPythonTamilImg,
@@ -343,12 +412,15 @@ function Certificate() {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" as const } },
   };
 
-  const getCertificateType = (cert: CertificateItem, categoryName: string): 'course' | 'quiz' | 'internship' | 'participation' | 'badge' => {
+  const getCertificateType = (cert: CertificateItem, categoryName: string): 'course' | 'quiz' | 'internship' | 'participation' | 'badge' | 'workshop' => {
     const name = cert.name.toLowerCase();
     const cat = categoryName.toLowerCase();
 
     if (cert.isBadge || cat.includes("badge") || name.includes("badge")) {
       return "badge";
+    }
+    if (cat.includes("workshop") || name.includes("workshop") || cat.includes("bootcamp") || name.includes("bootcamp")) {
+      return "workshop";
     }
     if (cat.includes("participation") || name.includes("participation")) {
       return "participation";
@@ -366,7 +438,7 @@ function Certificate() {
 
   const [selectedType, setSelectedType] = useState("All");
 
-  const filterTypes = ["All", "Badges", "Courses", "Participation", "Quizzes", "Internships"];
+  const filterTypes = ["All", "Badges", "Courses", "Workshops", "Participation", "Quizzes", "Internships"];
 
   const filteredCategories = certificateCategories.map(cat => ({
     ...cat,
@@ -375,6 +447,7 @@ function Certificate() {
       if (selectedType === "All") return true;
       if (selectedType === "Badges") return type === "badge";
       if (selectedType === "Courses") return type === "course";
+      if (selectedType === "Workshops") return type === "workshop";
       if (selectedType === "Participation") return type === "participation";
       if (selectedType === "Quizzes") return type === "quiz";
       if (selectedType === "Internships") return type === "internship";
@@ -397,37 +470,32 @@ function Certificate() {
             <span className="font-bold text-blue-400">{totalCertificates}</span>
           </div>
 
-
           <p className="text-gray-400 mt-6 text-sm sm:text-base max-w-2xl">
-            A collection of certifications, internships, and achievements that showcase my learning journey and professional growth.
+            A comprehensive verification showcase of my professional qualifications, certifications, digital badges, and completed technical training programs.
           </p>
-          <div className="w-12 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
-        </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10 max-w-3xl mx-auto">
-          {filterTypes.map((type) => {
-            const isSelected = selectedType === type;
-            return (
+          <div className="flex flex-wrap justify-center gap-2 mt-8">
+            {filterTypes.map((type) => (
               <button
                 key={type}
                 onClick={() => setSelectedType(type)}
-                className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer ${isSelected
-                  ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/20"
-                  : "bg-slate-900/60 text-slate-300 hover:bg-slate-900 border border-white/5 hover:border-cyan-500/30"
-                  }`}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer ${
+                  selectedType === type
+                    ? "bg-cyan-500 text-white shadow-lg shadow-cyan-500/30 scale-105"
+                    : "bg-slate-900/60 text-slate-400 border border-white/5 hover:border-cyan-500/30 hover:text-white"
+                }`}
               >
                 {type}
               </button>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-col gap-12">
+        <div className="space-y-16">
           {filteredCategories.map((category) => (
-            <div key={category.category} className="flex flex-col gap-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-l-4 border-cyan-400 pl-3">
-                <h3 className="text-lg font-bold text-white montserrat uppercase tracking-wider">
+            <div key={category.category} className="space-y-6">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
                   {category.category}
                 </h3>
                 <span className="text-xs bg-cyan-950/60 text-cyan-400 border border-cyan-500/20 px-3 py-1 rounded-full font-mono font-semibold">
