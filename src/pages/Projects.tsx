@@ -13,10 +13,11 @@ import {
   FaServer,
   FaFileExcel,
 } from "react-icons/fa"; // FontAwesome
-import { SiTailwindcss, SiTypescript, SiPython } from "react-icons/si";
+import { SiTailwindcss, SiTypescript, SiPython, SiSupabase, SiFigma } from "react-icons/si";
 import { MdInsertChart } from "react-icons/md";
 import Button from "../components/Button";
 
+import learnforgeDashboard from "../assets/learnforgedashboard.png";
 import powerbiDashboard from "../assets/powerbi-dashboard.png";
 import pic from "../assets/recipes-img.png";
 import suryaTailor from "../assets/surya-tailor.png";
@@ -50,6 +51,23 @@ function Projects() {
   const projects: ProjectItem[] = [
     {
       id: 1,
+      project_name: "LearnForge - Academic & Learning Portal",
+      img: learnforgeDashboard,
+      description:
+        "An all-in-one academic administration and student learning portal. Features seamless course management, real-time evaluation analytics, secure material distribution, automated attendance tracking, and live campus communication unified into a clean, modern dashboard interface.",
+      sourceCode: "https://github.com/Aaron2578/learnforgedashboard",
+      liveProject: "https://learnforgedashboard.vercel.app",
+      status: "Completed",
+      icon: [
+        <FaReact key="react" size={40} color="#61DAFB" title="React" />,
+        <SiTailwindcss key="tailwind" size={40} color="#38B2AC" title="Tailwind CSS" />,
+        <SiSupabase key="supabase" size={38} color="#3ECF8E" title="Supabase" />,
+        <SiFigma key="figma" size={36} color="#F24E1E" title="Figma" />,
+      ],
+      view: "desktop",
+    },
+    {
+      id: 2,
       project_name: "Power BI Interactive Analytics Dashboard",
       img: powerbiDashboard,
       description:
@@ -66,7 +84,7 @@ function Projects() {
       btnDisplay: true,
     },
     {
-      id: 2,
+      id: 3,
       project_name: "Web Recipes",
       img: pic,
       description:
@@ -82,7 +100,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 3,
+      id: 4,
       project_name: "Surya Tailor",
       img: suryaTailor,
       description:
@@ -97,7 +115,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 4,
+      id: 5,
       project_name: "To-Do List",
       img: todoList,
       description:
@@ -112,7 +130,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 5,
+      id: 6,
       project_name: "Positivus - Marketing Website",
       img: positivus,
       description:
@@ -127,7 +145,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 6,
+      id: 7,
       project_name: "Weather Web App",
       img: weatherApp,
       description:
@@ -142,7 +160,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 7,
+      id: 8,
       project_name: "Instagram Clone",
       img: instagramClone,
       description:
@@ -158,7 +176,7 @@ function Projects() {
       view: "desktop",
     },
     {
-      id: 8,
+      id: 9,
       project_name: "MatchVerse - Matrimony Website",
       img: matrimony,
       description:
@@ -173,7 +191,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 9,
+      id: 10,
       project_name: "Bank Flow",
       img: bankFlow,
       description:
@@ -188,7 +206,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 10,
+      id: 11,
       project_name: "Qr Code Generator",
       img: qrCode,
       description:
@@ -203,7 +221,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 11,
+      id: 12,
       project_name: "Profile Card",
       img: profileCard,
       description:
@@ -218,7 +236,7 @@ function Projects() {
       view: "responsive",
     },
     {
-      id: 12,
+      id: 13,
       project_name: "EduSphere - Department Website",
       img: eduSphere,
       description:
@@ -237,7 +255,7 @@ function Projects() {
       btnDisplay: true,
     },
     {
-      id: 13,
+      id: 14,
       project_name: "Sportify Eventz - Sports Website",
       img: sportifyEventz,
       description:
